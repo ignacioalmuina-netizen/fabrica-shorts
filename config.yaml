@@ -238,3 +238,9 @@ publicacion:
   hashtags_fijos: ["#shorts"]
   max_tags: 15
   esperar_procesado_min: 15     # minutos máx. esperando a que YouTube procese antes de thumbnails.set
+
+# ------------------------------------------------------------
+#  Automatización (tarea programada diaria)
+# ------------------------------------------------------------
+automatizacion:
+  shorts_por_tirada: 3          # cuántos Shorts hace cada vez que se lanza sin número

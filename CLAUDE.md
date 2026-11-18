@@ -1,5 +1,9 @@
 # Fábrica de YouTube Shorts
 
+> **Si el usuario (o una tarea programada) pide hacer shorts/vídeos en lenguaje normal** ("haz shorts",
+> "hazme 3 shorts de tiburones", "saca los vídeos de hoy"), ejecuta la skill `hacer-shorts`
+> (= flujo de `.claude/commands/nuevo-short.md`) **sin preguntar nada**. El usuario quiere cero intervención.
+
 Cadena de montaje de 7 subagentes. El usuario escribe `/nuevo-short` y el agente principal
 (orquestador, `.claude/commands/nuevo-short.md`) llama a los subagentes **en orden** con la
 herramienta Agent. Cada subagente hace UNA tarea: lee lo que dejó el anterior en la carpeta de
