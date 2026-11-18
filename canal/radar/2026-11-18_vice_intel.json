@@ -1,47 +1,112 @@
-{"fecha": "2026-11-18", "marca": "vice_intel", "generado": "2026-11-18T15:40:00+00:00",
+{
+ "fecha": "2026-11-18",
+ "marca": "vice_intel",
+ "generado": "2026-11-18T15:40:00+00:00",
  "nota": "Dia de lanzamiento. Formato ganador segun vidIQ (dato del orquestador, 18-nov): 'Final GTA 6 Update' (Austin Sweatt, 54 s, 819K en ~1 dia) = noticia de ultima hora con urgencia; 'GTA 6 vs every GTA map' (canal de 282 subs, 199K) = comparacion de mapas, el TEMA tira solo; memes de 8-9 s de GelNox (1,3M) = ritmo ultracorto. Sin YOUTUBE_API_KEY: modo web.",
  "temas": [
-  {"tema": "GTA 6 se desbloquea esta medianoche (00:00 hora local del 19-nov) en PS5 y Xbox Series X|S: hora por pais, precarga de 212 GB",
+  {
+   "tema": "GTA 6 se desbloquea esta medianoche (00:00 hora local del 19-nov) en PS5 y Xbox Series X|S: hora por pais, precarga de 212 GB",
    "por_que_ahora": "Lanzamiento en horas. Rockstar Newswire: precarga abierta desde el 10-nov; desbloqueo a medianoche hora local del 19-nov en todas las regiones (Kotaku, Forbes 12-nov, soporte de Sony). Espana 00:00 CET (Canarias 1 h despues); Mexico/Argentina/Colombia 00:00 de su hora local. Hace falta 212 GB libres; la precarga terminada NO adelanta la hora.",
-   "fuentes": ["https://www.rockstargames.com/newswire/article/k4ak9okk485712/grand-theft-auto-vi-pre-load-begins-on-november-10",
-               "https://kotaku.com/gta-6-pre-load-times-install-size-and-global-release-times-confirmed-2000752787",
-               "https://www.forbes.com/sites/brianmazique/2026/11/12/gta-6-unlocks-at-midnight-on-november-19-but-millions-of-americans-can-start-playing-the-night-before/",
-               "https://vandal.elespanol.com/noticia/2026250032/gta-6-confirma-la-hora-exacta-para-su-lanzamiento-en-espana-y-el-resto-del-mundo/"],
-   "oficial": true, "formatos_que_encajan": ["noticia_flash", "lista"], "usado_en": "2026-11-18_152225"},
-  {"tema": "Las primeras notas de GTA 6: Metacritic alrededor de 99, a la altura de Ocarina of Time (embargo de analisis levantado el 18-nov)",
+   "fuentes": [
+    "https://www.rockstargames.com/newswire/article/k4ak9okk485712/grand-theft-auto-vi-pre-load-begins-on-november-10",
+    "https://kotaku.com/gta-6-pre-load-times-install-size-and-global-release-times-confirmed-2000752787",
+    "https://www.forbes.com/sites/brianmazique/2026/11/12/gta-6-unlocks-at-midnight-on-november-19-but-millions-of-americans-can-start-playing-the-night-before/",
+    "https://vandal.elespanol.com/noticia/2026250032/gta-6-confirma-la-hora-exacta-para-su-lanzamiento-en-espana-y-el-resto-del-mundo/"
+   ],
+   "oficial": true,
+   "formatos_que_encajan": [
+    "noticia_flash",
+    "lista"
+   ],
+   "usado_en": "2026-11-18_152225"
+  },
+  {
+   "tema": "Las primeras notas de GTA 6: Metacritic alrededor de 99, a la altura de Ocarina of Time (embargo de analisis levantado el 18-nov)",
    "por_que_ahora": "Embargo de reviews el 18-nov. Notebookcheck, Dexerto, FandomWire y TechRadar (live) hablan de 99 en Metacritic y ~98 en OpenCritic, sin reviews mixtas; criticas recurrentes: sin modo 60 fps, caidas bajo 30 fps, realismo exigente. OJO: otras busquedas no lo confirman y el numero de reviews cambia por hora; verificar en Metacritic en directo antes de usar la cifra exacta.",
-   "fuentes": ["https://www.notebookcheck.net/GTA-6-reviews-award-99-Metacritic-score-topping-GTA-4-to-become-Rockstar-s-top-rated.1453363.0.html",
-               "https://www.dexerto.com/gta/gta-6-is-the-joint-best-reviewed-game-of-the-all-time-3429300/",
-               "https://www.techradar.com/live/news/gta-6-review-embargo-roundup-reaction-ask-me-anything-launch-live",
-               "https://www.tomsguide.com/news/live/gta-6-review-roundup-live-updates"],
-   "oficial": false, "formatos_que_encajan": ["noticia_flash", "lista"], "usado_en": null},
-  {"tema": "GTA 6 ya ha recibido 2 actualizaciones antes de salir (1.002.000 el 13-nov y 01.002.001 el 16-nov) y Rockstar no ha publicado notas del parche",
+   "fuentes": [
+    "https://www.notebookcheck.net/GTA-6-reviews-award-99-Metacritic-score-topping-GTA-4-to-become-Rockstar-s-top-rated.1453363.0.html",
+    "https://www.dexerto.com/gta/gta-6-is-the-joint-best-reviewed-game-of-the-all-time-3429300/",
+    "https://www.techradar.com/live/news/gta-6-review-embargo-roundup-reaction-ask-me-anything-launch-live",
+    "https://www.tomsguide.com/news/live/gta-6-review-roundup-live-updates"
+   ],
+   "oficial": false,
+   "formatos_que_encajan": [
+    "noticia_flash",
+    "lista"
+   ],
+   "usado_en": null
+  },
+  {
+   "tema": "GTA 6 ya ha recibido 2 actualizaciones antes de salir (1.002.000 el 13-nov y 01.002.001 el 16-nov) y Rockstar no ha publicado notas del parche",
    "por_que_ahora": "Segundo update desplegado el lunes 16-nov (~602 MB PS5 / ~1,6 GB Xbox segun cuentas de seguimiento, no Rockstar). Sin patch notes. Rockstar no lo llama 'day one patch'. Mismo gancho que 'Final GTA 6 Update' (819K en 1 dia).",
-   "fuentes": ["https://www.techtimes.com/articles/330886/20261117/gta-6-gets-second-pre-launch-update-602-mb-ps5-16-gb-xbox-still-no-patch-notes.htm",
-               "https://www.keengamer.com/articles/news/gta-6-update-1-002-starts-rolling-out-on-ps5-and-xbox-ahead-of-launch/",
-               "https://www.play3.de/2026/11/16/gta-6-zweites-day-one-update-im-anmarsch-gestaffelter-rollout-gestartet/"],
-   "oficial": false, "formatos_que_encajan": ["noticia_flash"], "usado_en": null},
-  {"tema": "GTA 6 vs todos los mapas de GTA (III, Vice City, San Andreas, IV, V): cuanto mas grande es Leonida",
+   "fuentes": [
+    "https://www.techtimes.com/articles/330886/20261117/gta-6-gets-second-pre-launch-update-602-mb-ps5-16-gb-xbox-still-no-patch-notes.htm",
+    "https://www.keengamer.com/articles/news/gta-6-update-1-002-starts-rolling-out-on-ps5-and-xbox-ahead-of-launch/",
+    "https://www.play3.de/2026/11/16/gta-6-zweites-day-one-update-im-anmarsch-gestaffelter-rollout-gestartet/"
+   ],
+   "oficial": false,
+   "formatos_que_encajan": [
+    "noticia_flash"
+   ],
+   "usado_en": null
+  },
+  {
+   "tema": "GTA 6 vs todos los mapas de GTA (III, Vice City, San Andreas, IV, V): cuanto mas grande es Leonida",
    "por_que_ahora": "Formato que revienta hoy: 'GTA 6 vs every GTA map' en un canal de 282 subs con 199K vistas (vidIQ). Tamanos de Leonida aun son estimaciones (~2x-2,5x GTA 5): etiquetar como estimacion hasta que la comunidad lo mida tras el lanzamiento.",
-   "fuentes": ["https://www.redbull.com/us-en/gta-6-gta-5-key-differences",
-               "https://box.co.uk/blog/gta-6-vs-gta-5-map-story-size-changes",
-               "https://beebom.com/gta-6-vs-gta-5/"],
-   "oficial": false, "formatos_que_encajan": ["lista", "comparacion"], "usado_en": null},
-  {"tema": "5 cosas que tienes que saber antes de jugar GTA 6 esta noche (212 GB, sin PC, sin 60 fps, hora local, 6 estrellas de busqueda)",
+   "fuentes": [
+    "https://www.redbull.com/us-en/gta-6-gta-5-key-differences",
+    "https://box.co.uk/blog/gta-6-vs-gta-5-map-story-size-changes",
+    "https://beebom.com/gta-6-vs-gta-5/"
+   ],
+   "oficial": false,
+   "formatos_que_encajan": [
+    "lista",
+    "comparacion"
+   ],
+   "usado_en": "2026-11-18_152226"
+  },
+  {
+   "tema": "5 cosas que tienes que saber antes de jugar GTA 6 esta noche (212 GB, sin PC, sin 60 fps, hora local, 6 estrellas de busqueda)",
    "por_que_ahora": "Lista util de dia de lanzamiento combinando datos oficiales (hora, precarga, plataformas PS5/Xbox, PC no anunciado) con lo que dicen las reviews (sin modo 60 fps). Ideal para la tirada en ingles de formato lista.",
-   "fuentes": ["https://kotaku.com/gta-6-pre-load-times-install-size-and-global-release-times-confirmed-2000752787",
-               "https://www.techradar.com/live/news/gta-6-review-embargo-roundup-reaction-ask-me-anything-launch-live",
-               "https://www.rockstargames.com/newswire/article/k4ak9okk485712/grand-theft-auto-vi-pre-load-begins-on-november-10"],
-   "oficial": true, "formatos_que_encajan": ["lista"], "usado_en": null},
-  {"tema": "Detalles del trailer y capturas que casi nadie vio (caimán en la tienda, flamencos en la autopista, iguana con ropa, excrementos de pajaro en el yate)",
+   "fuentes": [
+    "https://kotaku.com/gta-6-pre-load-times-install-size-and-global-release-times-confirmed-2000752787",
+    "https://www.techradar.com/live/news/gta-6-review-embargo-roundup-reaction-ask-me-anything-launch-live",
+    "https://www.rockstargames.com/newswire/article/k4ak9okk485712/grand-theft-auto-vi-pre-load-begins-on-november-10"
+   ],
+   "oficial": true,
+   "formatos_que_encajan": [
+    "lista"
+   ],
+   "usado_en": null
+  },
+  {
+   "tema": "Detalles del trailer y capturas que casi nadie vio (caimán en la tienda, flamencos en la autopista, iguana con ropa, excrementos de pajaro en el yate)",
    "por_que_ahora": "Siempre funciona en la semana de salida; fuentes de 2023-2026 (analisis de fans, no oficial). A partir del 19-nov se podran comprobar en el juego.",
-   "fuentes": ["https://www.analyticsinsight.net/games/hidden-details-in-gta-6s-latest-trailer-what-fans-have-discovered",
-               "https://www.notebookcheck.net/Peeing-NPC-and-clothed-iguana-These-details-in-the-GTA-6-image-are-easy-to-miss.1347047.0.html",
-               "https://gamegeeker.com/news/gta6-yacht-bird-droppings-detail-discovery"],
-   "oficial": false, "formatos_que_encajan": ["lista", "detalle_oculto"], "usado_en": null},
-  {"tema": "Que esta confirmado y que no el dia 1: GTA Online de GTA 6 y version de PC siguen sin fecha oficial",
+   "fuentes": [
+    "https://www.analyticsinsight.net/games/hidden-details-in-gta-6s-latest-trailer-what-fans-have-discovered",
+    "https://www.notebookcheck.net/Peeing-NPC-and-clothed-iguana-These-details-in-the-GTA-6-image-are-easy-to-miss.1347047.0.html",
+    "https://gamegeeker.com/news/gta6-yacht-bird-droppings-detail-discovery"
+   ],
+   "oficial": false,
+   "formatos_que_encajan": [
+    "lista",
+    "detalle_oculto"
+   ],
+   "usado_en": null
+  },
+  {
+   "tema": "Que esta confirmado y que no el dia 1: GTA Online de GTA 6 y version de PC siguen sin fecha oficial",
    "por_que_ahora": "Pregunta repetida en la semana de salida: plataformas oficiales solo PS5 y Xbox Series X|S; PC sin anunciar; modo online sin confirmacion oficial para el lanzamiento segun varias guias. Separar OFICIAL de RUMOR.",
-   "fuentes": ["https://www.gamesradar.com/gta-6-release-date-news-trailers-map-gameplay-rumours/",
-               "https://www.tomsguide.com/news/gta-6"],
-   "oficial": false, "formatos_que_encajan": ["noticia_flash", "lista"], "usado_en": null}
- ]}
+   "fuentes": [
+    "https://www.gamesradar.com/gta-6-release-date-news-trailers-map-gameplay-rumours/",
+    "https://www.tomsguide.com/news/gta-6"
+   ],
+   "oficial": false,
+   "formatos_que_encajan": [
+    "noticia_flash",
+    "lista"
+   ],
+   "usado_en": null
+  }
+ ]
+}
