@@ -1,0 +1,4 @@
+Pon aquí música de fondo SIN derechos (.mp3, .wav, .m4a, .ogg).
+Fuente recomendada: Biblioteca de audio de YouTube Studio (studio.youtube.com > Biblioteca de audio),
+filtrando por "Atribución no obligatoria". El montador elige una al azar y no repite las 3 últimas.
+prueba_ambiente.mp3 es una pista sintética de prueba: bórrala cuando pongas la tuya.

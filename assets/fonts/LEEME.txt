@@ -1,0 +1,2 @@
+Anton-Regular.ttf — fuente de subtítulos y miniaturas (Google Fonts, licencia SIL Open Font License).
+Si cambias de fuente, pon aquí el .ttf y cambia subtitulos.fuente en config.yaml (nombre interno de la fuente).

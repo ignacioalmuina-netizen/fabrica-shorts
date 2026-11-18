@@ -1,0 +1,278 @@
+[
+ {
+  "id": "SIM000",
+  "snippet": {
+   "title": "Tu cerebro borra recuerdos mientras duermes",
+   "channelId": "UCSIM000",
+   "channelTitle": "Canal Prueba 0",
+   "publishedAt": "2026-11-17T05:36:41.366761Z",
+   "defaultAudioLanguage": "es",
+   "description": "vídeo de ejemplo para simulación",
+   "tags": [
+    "shorts"
+   ]
+  },
+  "contentDetails": {
+   "duration": "PT41S"
+  },
+  "statistics": {
+   "viewCount": "2400000",
+   "likeCount": "161743",
+   "commentCount": "3568"
+  },
+  "_subs": 85000
+ },
+ {
+  "id": "SIM001",
+  "snippet": {
+   "title": "El pulpo tiene 3 corazones y sangre azul",
+   "channelId": "UCSIM001",
+   "channelTitle": "Canal Prueba 1",
+   "publishedAt": "2026-11-17T02:36:41.366761Z",
+   "defaultAudioLanguage": "es",
+   "description": "vídeo de ejemplo para simulación",
+   "tags": [
+    "shorts"
+   ]
+  },
+  "contentDetails": {
+   "duration": "PT34S"
+  },
+  "statistics": {
+   "viewCount": "1100000",
+   "likeCount": "25983",
+   "commentCount": "2023"
+  },
+  "_subs": 1200000
+ },
+ {
+  "id": "SIM002",
+  "snippet": {
+   "title": "Por qué los aviones no vuelan en línea recta",
+   "channelId": "UCSIM002",
+   "channelTitle": "Canal Prueba 2",
+   "publishedAt": "2026-11-16T06:36:41.366761Z",
+   "defaultAudioLanguage": "es",
+   "description": "vídeo de ejemplo para simulación",
+   "tags": [
+    "shorts"
+   ]
+  },
+  "contentDetails": {
+   "duration": "PT52S"
+  },
+  "statistics": {
+   "viewCount": "3900000",
+   "likeCount": "191643",
+   "commentCount": "10819"
+  },
+  "_subs": 6000000
+ },
+ {
+  "id": "SIM003",
+  "snippet": {
+   "title": "Este pez es inmortal (de verdad)",
+   "channelId": "UCSIM003",
+   "channelTitle": "Canal Prueba 3",
+   "publishedAt": "2026-11-17T15:36:41.366761Z",
+   "defaultAudioLanguage": "es",
+   "description": "vídeo de ejemplo para simulación",
+   "tags": [
+    "shorts"
+   ]
+  },
+  "contentDetails": {
+   "duration": "PT28S"
+  },
+  "statistics": {
+   "viewCount": "900000",
+   "likeCount": "19687",
+   "commentCount": "1425"
+  },
+  "_subs": 22000
+ },
+ {
+  "id": "SIM004",
+  "snippet": {
+   "title": "La mentira que te contaron sobre el azúcar",
+   "channelId": "UCSIM004",
+   "channelTitle": "Canal Prueba 4",
+   "publishedAt": "2026-11-15T19:36:41.366761Z",
+   "defaultAudioLanguage": "es",
+   "description": "vídeo de ejemplo para simulación",
+   "tags": [
+    "shorts"
+   ]
+  },
+  "contentDetails": {
+   "duration": "PT47S"
+  },
+  "statistics": {
+   "viewCount": "650000",
+   "likeCount": "20821",
+   "commentCount": "1220"
+  },
+  "_subs": 300000
+ },
+ {
+  "id": "SIM005",
+  "snippet": {
+   "title": "Qué pasaría si la Luna desapareciera",
+   "channelId": "UCSIM005",
+   "channelTitle": "Canal Prueba 5",
+   "publishedAt": "2026-11-15T10:36:41.366761Z",
+   "defaultAudioLanguage": "es",
+   "description": "vídeo de ejemplo para simulación",
+   "tags": [
+    "shorts"
+   ]
+  },
+  "contentDetails": {
+   "duration": "PT58S"
+  },
+  "statistics": {
+   "viewCount": "5200000",
+   "likeCount": "318981",
+   "commentCount": "4209"
+  },
+  "_subs": 9800000
+ },
+ {
+  "id": "SIM006",
+  "snippet": {
+   "title": "El truco psicológico de los supermercados",
+   "channelId": "UCSIM006",
+   "channelTitle": "Canal Prueba 6",
+   "publishedAt": "2026-11-17T04:36:41.366761Z",
+   "defaultAudioLanguage": "es",
+   "description": "vídeo de ejemplo para simulación",
+   "tags": [
+    "shorts"
+   ]
+  },
+  "contentDetails": {
+   "duration": "PT39S"
+  },
+  "statistics": {
+   "viewCount": "1800000",
+   "likeCount": "92756",
+   "commentCount": "3523"
+  },
+  "_subs": 41000
+ },
+ {
+  "id": "SIM007",
+  "snippet": {
+   "title": "Why your phone battery lies to you",
+   "channelId": "UCSIM007",
+   "channelTitle": "Canal Prueba 7",
+   "publishedAt": "2026-11-17T12:36:41.366761Z",
+   "defaultAudioLanguage": "en",
+   "description": "vídeo de ejemplo para simulación",
+   "tags": [
+    "shorts"
+   ]
+  },
+  "contentDetails": {
+   "duration": "PT31S"
+  },
+  "statistics": {
+   "viewCount": "2100000",
+   "likeCount": "102595",
+   "commentCount": "3132"
+  },
+  "_subs": 150000
+ },
+ {
+  "id": "SIM008",
+  "snippet": {
+   "title": "The animal that never sleeps",
+   "channelId": "UCSIM008",
+   "channelTitle": "Canal Prueba 8",
+   "publishedAt": "2026-11-16T00:36:41.366761Z",
+   "defaultAudioLanguage": "en",
+   "description": "vídeo de ejemplo para simulación",
+   "tags": [
+    "shorts"
+   ]
+  },
+  "contentDetails": {
+   "duration": "PT44S"
+  },
+  "statistics": {
+   "viewCount": "4400000",
+   "likeCount": "98248",
+   "commentCount": "11643"
+  },
+  "_subs": 12000000
+ },
+ {
+  "id": "SIM009",
+  "snippet": {
+   "title": "Nobody knows why this happens to your eyes",
+   "channelId": "UCSIM009",
+   "channelTitle": "Canal Prueba 9",
+   "publishedAt": "2026-11-17T09:36:41.366761Z",
+   "defaultAudioLanguage": "en",
+   "description": "vídeo de ejemplo para simulación",
+   "tags": [
+    "shorts"
+   ]
+  },
+  "contentDetails": {
+   "duration": "PT37S"
+  },
+  "statistics": {
+   "viewCount": "3000000",
+   "likeCount": "122870",
+   "commentCount": "5555"
+  },
+  "_subs": 60000
+ },
+ {
+  "id": "SIM010",
+  "snippet": {
+   "title": "Song clip (music)",
+   "channelId": "UCSIM010",
+   "channelTitle": "Canal Prueba 10",
+   "publishedAt": "2026-11-14T07:36:41.366761Z",
+   "defaultAudioLanguage": "es",
+   "description": "vídeo de ejemplo para simulación",
+   "tags": [
+    "shorts"
+   ]
+  },
+  "contentDetails": {
+   "duration": "PT3M20S"
+  },
+  "statistics": {
+   "viewCount": "9000000",
+   "likeCount": "318816",
+   "commentCount": "22862"
+  },
+  "_subs": 20000000
+ },
+ {
+  "id": "SIM011",
+  "snippet": {
+   "title": "Coca-Cola's secret vault",
+   "channelId": "UCSIM011",
+   "channelTitle": "Canal Prueba 11",
+   "publishedAt": "2026-11-16T16:36:41.366761Z",
+   "defaultAudioLanguage": "en",
+   "description": "vídeo de ejemplo para simulación",
+   "tags": [
+    "shorts"
+   ]
+  },
+  "contentDetails": {
+   "duration": "PT49S"
+  },
+  "statistics": {
+   "viewCount": "1300000",
+   "likeCount": "32698",
+   "commentCount": "2506"
+  },
+  "_subs": 400000
+ }
+]

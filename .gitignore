@@ -1,0 +1,9 @@
+.env
+secrets/*
+!secrets/.gitkeep
+runs/*
+!runs/.gitkeep
+demo/
+canal/cache_tendencias/
+__pycache__/
+.venv/
