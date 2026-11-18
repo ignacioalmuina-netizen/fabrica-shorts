@@ -80,9 +80,23 @@ def tts_edge(texto: str, voz: str, destino: Path, rate: str = "+0%") -> list[dic
                     palabras.append({"palabra": ch["text"], "inicio": ini, "fin": ini + ch["duration"] / 1e7})
         return palabras
 
-    palabras = asyncio.run(run())
-    if not palabras or destino.stat().st_size == 0:
+    crudas = asyncio.run(run())
+    if not crudas or destino.stat().st_size == 0:
         raise RuntimeError("edge-tts no devolvió audio")
+    # edge-tts a veces agrupa varias palabras en un bloque ("Jueves 19 de noviembre"):
+    # se parte en palabras repartiendo el tiempo según la longitud de cada una
+    palabras = []
+    for p in crudas:
+        trozos = p["palabra"].split()
+        if len(trozos) <= 1:
+            palabras.append(p)
+            continue
+        total = sum(len(t) + 1 for t in trozos)
+        t0, dur, acc = p["inicio"], p["fin"] - p["inicio"], 0
+        for t in trozos:
+            a = t0 + dur * acc / total
+            acc += len(t) + 1
+            palabras.append({"palabra": t, "inicio": a, "fin": t0 + dur * acc / total})
     # edge-tts no devuelve signos de puntuación: se recuperan del texto original
     orig = tokenizar(texto)
     from comun import normalizar
