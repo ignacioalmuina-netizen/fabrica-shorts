@@ -143,14 +143,23 @@ voz:
 
 # ------------------------------------------------------------
 #  4. Material visual
-#  proveedor: openai  -> imágenes IA 1024x1536 con el estilo del formato (RECOMENDADO para A y B)
+#  proveedor: ia      -> una imagen IA por plano con el estilo del formato (RECOMENDADO)
 #             pexels  -> vídeo de stock vertical
 #             mixto   -> Pexels primero; si no encaja, imagen IA
+#  ia:        auto       -> Cloudflare si hay CLOUDFLARE_ACCOUNT_ID (GRATIS), si no OpenAI
+#             cloudflare -> Workers AI / Flux, gratis ~80-90 imágenes al día
+#             openai     -> gpt-image, de pago (~0,04 $/imagen), la mejor calidad
 #  También puedes generar fuera (p. ej. ElevenLabs) e importar:
 #    python scripts/escenas.py runs/X --escena N --importar imagen.png
 # ------------------------------------------------------------
 visual:
-  proveedor: openai
+  proveedor: ia
+  ia: auto
+  cloudflare:
+    modelo: "@cf/black-forest-labs/flux-1-schnell"
+    pasos: 8                    # 1-8: más pasos = más calidad y más neuronas
+    # ancho: 768               # solo para modelos que lo admitan (flux-1-schnell saca 1024x1024)
+    # alto: 1344
   pexels:
     resultados: 15
     min_altura: 1280

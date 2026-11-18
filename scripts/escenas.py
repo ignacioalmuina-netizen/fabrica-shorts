@@ -91,6 +91,62 @@ def pexels(busqueda: str, necesaria: float, excluir: set, cfg, destino: Path) ->
             "duracion_clip": v["duration"], "resolucion": f"{f['width']}x{f['height']}"}
 
 
+def cloudflare_imagen(prompt: str, cfg, destino: Path, estilo: str = "") -> dict:
+    """Workers AI (Flux). GRATIS: 10.000 neuronas/día con una cuenta de Cloudflare sin tarjeta."""
+    cuenta, token = clave("CLOUDFLARE_ACCOUNT_ID"), clave("CLOUDFLARE_API_TOKEN")
+    if not cuenta:
+        raise RuntimeError("Falta CLOUDFLARE_ACCOUNT_ID")
+    c = cfg["visual"].get("cloudflare", {})
+    modelo = c.get("modelo", "@cf/black-forest-labs/flux-1-schnell")
+    prompt_final = ((estilo.strip() + " ") if estilo else "") + prompt + (
+        ". Tall vertical portrait framing, single clear subject in the center, cinematic lighting, "
+        "ultra detailed, no text, no letters, no watermark.")
+    body = {"prompt": prompt_final[:2000], "steps": int(c.get("pasos", 8))}
+    if c.get("ancho") and c.get("alto"):
+        body.update(width=int(c["ancho"]), height=int(c["alto"]))
+    cab = {"Authorization": f"Bearer {token or 'proxy'}"}   # en la nube el proxy inyecta el token
+    for intento in range(3):
+        r = requests.post(f"https://api.cloudflare.com/client/v4/accounts/{cuenta}/ai/run/{modelo}",
+                          headers=cab, json=body, timeout=180)
+        if r.status_code == 429 or r.status_code >= 500:
+            import time
+            time.sleep(5 * (intento + 1))
+            continue
+        break
+    if r.status_code != 200:
+        if "neurons" in r.text.lower() or r.status_code == 429:
+            raise RuntimeError("Cloudflare: cupo gratis diario agotado (se renueva a las 00:00 UTC)")
+        raise RuntimeError(f"Cloudflare {r.status_code}: {r.text[:300]}")
+    if r.headers.get("content-type", "").startswith("image/"):
+        destino.write_bytes(r.content)
+    else:
+        img = (r.json().get("result") or {}).get("image")
+        if not img:
+            raise RuntimeError(f"Cloudflare no devolvió imagen: {r.text[:300]}")
+        destino.write_bytes(base64.b64decode(img))
+    return {"modelo": modelo, "prompt_final": prompt_final}
+
+
+def proveedor_ia(cfg) -> str:
+    """Qué generador de imágenes usar: el de config o, en 'auto', el primero que tenga clave."""
+    p = cfg["visual"].get("ia", "auto")
+    if p != "auto":
+        return p
+    if clave("CLOUDFLARE_ACCOUNT_ID"):
+        return "cloudflare"
+    if clave("OPENAI_API_KEY"):
+        return "openai"
+    raise RuntimeError("No hay generador de imágenes: pon CLOUDFLARE_ACCOUNT_ID + CLOUDFLARE_API_TOKEN "
+                       "(gratis) u OPENAI_API_KEY en .env")
+
+
+def imagen_ia(prompt: str, cfg, destino: Path, estilo: str = "") -> dict:
+    p = proveedor_ia(cfg)
+    info = (cloudflare_imagen if p == "cloudflare" else openai_imagen)(prompt, cfg, destino, estilo)
+    info["fuente"] = p
+    return info
+
+
 def openai_imagen(prompt: str, cfg, destino: Path, estilo: str = "") -> dict:
     k = clave("OPENAI_API_KEY")
     if not k:
@@ -166,24 +222,21 @@ def hacer_escena(i, esc, necesaria, cfg, enc, tirada, carpeta, excluir, proveedo
             try:
                 info = pexels(busqueda, necesaria, excluir, cfg, archivo)
             except RuntimeError as ex:
-                if proveedor == "pexels" or not clave("OPENAI_API_KEY"):
+                if proveedor == "pexels":
                     parar(f"escena {i + 1}: {ex}")
                 print(f"⚠️  escena {i + 1}: Pexels falló ({ex}); uso imagen IA")
             if info:
                 tipo = "video"
             elif proveedor == "pexels":
                 parar(f"escena {i + 1}: Pexels no tiene clips verticales para '{busqueda}'. Cambia la búsqueda.")
-            elif not clave("OPENAI_API_KEY"):
-                parar(f"escena {i + 1}: sin resultados en Pexels para '{busqueda}' y no hay OPENAI_API_KEY "
-                      "para generar una imagen. Cambia la búsqueda.")
+
         if info is None:
             archivo = carpeta / f"escena_{i + 1:02d}.png"
             try:
-                info = openai_imagen(prompt, cfg, archivo, estilo)
+                info = imagen_ia(prompt, cfg, archivo, estilo)
             except RuntimeError as ex:
                 parar(f"escena {i + 1}: {ex}")
             tipo = "imagen"
-            info["fuente"] = "openai"
         else:
             info.setdefault("fuente", "pexels")
     frame = carpeta / f"frame_{i + 1:02d}.jpg"
@@ -210,7 +263,7 @@ def main():
     ap.add_argument("--escena", type=int, help="rehacer solo esta escena (1..N)")
     ap.add_argument("--busqueda")
     ap.add_argument("--prompt")
-    ap.add_argument("--proveedor", choices=["pexels", "openai", "mixto"])
+    ap.add_argument("--proveedor", choices=["ia", "pexels", "openai", "cloudflare", "mixto"])
     ap.add_argument("--aprobar", help="lista de escenas revisadas que encajan, p. ej. 1,2,3")
     ap.add_argument("--validar", action="store_true")
     ap.add_argument("--importar", help="usa este archivo (imagen o vídeo) para --escena N")
@@ -306,6 +359,9 @@ def main():
         return
 
     proveedor = a.proveedor or cfg["visual"]["proveedor"]
+    if proveedor in ("openai", "cloudflare"):      # forzar un generador concreto
+        cfg["visual"]["ia"] = proveedor
+        proveedor = "ia"
     excluir = clips_usados_recientes(cfg, enc["tirada"])
     excluir |= {e.get("pexels_id") for n, e in por_num.items() if n != a.escena}
     indices = [a.escena - 1] if a.escena else range(len(guion["escenas"]))

@@ -82,9 +82,17 @@ Sin ella se usa **edge-tts** (gratis, buena calidad) automáticamente.
 3. `.env` → `ELEVENLABS_API_KEY=...`
 4. Voz: `config.yaml` ya trae **SAM ADAM** (`18GZPpJvaVG53Nt3H52N`, enérgica, latina neutra, hecha para curiosidades). Entra en **Voice Library**, búscala y pulsa "Add to my voices" para poder usarla por API. Para inglés, elige otra y pega su **Voice ID** en `idiomas.en.voz.elevenlabs_voice_id`.
 
-## 6. OpenAI (`OPENAI_API_KEY`) — recomendada, de pago (imágenes IA 3D)
+## 6. Imágenes IA GRATIS con Cloudflare (`CLOUDFLARE_ACCOUNT_ID` + `CLOUDFLARE_API_TOKEN`) — recomendada
 
-Es el proveedor visual por defecto (`visual.proveedor: openai`): una imagen por plano con el estilo del formato. ~11 planos por Short.
+Cloudflare Workers AI regala **10.000 "neuronas" al día** (sin tarjeta). Con el modelo Flux salen unas **80-90 imágenes diarias ≈ 7-8 Shorts al día gratis**. El cupo se renueva a las 00:00 UTC.
+1. Crea una cuenta gratis en <https://dash.cloudflare.com/sign-up> (solo email).
+2. **Account ID**: en el panel, menú de la cuenta → "Account home"; aparece a la derecha como *Account ID* (también está en la URL: `dash.cloudflare.com/<ACCOUNT_ID>/...`). Pégalo en `.env` → `CLOUDFLARE_ACCOUNT_ID=...`
+3. **Token**: arriba a la derecha, tu perfil → **My Profile → API Tokens → Create Token** → plantilla **"Workers AI"** → *Continue to summary* → *Create Token*. Cópialo en `.env` → `CLOUDFLARE_API_TOKEN=...`
+4. Listo: con `visual.ia: auto` la fábrica usa Cloudflare automáticamente.
+
+## 6b. OpenAI (`OPENAI_API_KEY`) — opcional, de pago (la mejor calidad)
+
+Más fiel al prompt y con más detalle que Flux (~0,04 $/imagen, ~0,50 $ por Short). Para usarla siempre: `visual.ia: openai` en `config.yaml`.
 Alternativa: si en Claude Code tienes conectado **ElevenLabs** (conector de claude.ai), el director de escenas puede generar las imágenes con él e importarlas (`scripts/escenas.py --importar`).
 1. <https://platform.openai.com/api-keys> → **Create new secret key**.
 2. Añade saldo en *Billing*. Para el modelo `gpt-image-1` puede que te pida **verificar la organización** (Settings → Organization → Verify).
