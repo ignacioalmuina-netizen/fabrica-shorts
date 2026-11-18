@@ -91,5 +91,24 @@
     "url": null,
     "privacidad": null,
     "simulacion": false
+  },
+  {
+    "tirada": "2026-11-18_145831",
+    "fecha": "2026-11-18T15:07:44+00:00",
+    "idioma": "en",
+    "tema": "What happens to your body if you fall into ice-cold water",
+    "formato": "cuerpo_humano",
+    "formato_id": "cuerpo_humano",
+    "gancho": "What kills you first in ice-cold water?",
+    "titulo": "Hypothermia isn't the first threat in ice water",
+    "duracion_s": 21.9,
+    "musica": "pulso_cinematico.wav",
+    "miniatura": "IT'S NOT THE COLD",
+    "modo_subida": "manual",
+    "estado": "pendiente_manual",
+    "video_id": null,
+    "url": null,
+    "privacidad": null,
+    "simulacion": false
   }
 ]
