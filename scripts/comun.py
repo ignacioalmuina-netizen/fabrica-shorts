@@ -43,10 +43,53 @@ def cargar_env() -> None:
                     os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
 
 
-def cargar_config() -> dict:
+CANALES_PATH = RAIZ / "canales.yaml"
+
+
+def cargar_marcas() -> dict:
+    import yaml
+    if not CANALES_PATH.exists():
+        return {}
+    return yaml.safe_load(CANALES_PATH.read_text(encoding="utf-8")) or {}
+
+
+def _fusionar(base: dict, extra: dict) -> dict:
+    for k, v in (extra or {}).items():
+        if isinstance(v, dict) and isinstance(base.get(k), dict):
+            _fusionar(base[k], v)
+        else:
+            base[k] = v
+    return base
+
+
+def cargar_config(tirada=None) -> dict:
+    """config.yaml + (si la tirada es de un canal) la configuración de su marca e idioma."""
     import yaml
     cargar_env()
-    return yaml.safe_load(CONFIG_PATH.read_text(encoding="utf-8"))
+    cfg = yaml.safe_load(CONFIG_PATH.read_text(encoding="utf-8"))
+    if tirada is None:
+        return cfg
+    p = Path(tirada) / SALIDAS[0]
+    if not p.exists():
+        return cfg
+    enc = leer_json(p)
+    marca = (cargar_marcas().get("marcas") or {}).get(enc.get("marca") or "")
+    if not marca:
+        return cfg
+    _fusionar(cfg, marca.get("config") or {})
+    idioma = enc.get("idioma", "es")
+    v = marca.get("voz") or {}
+    vi = v.get(idioma) or {}
+    cfg["idiomas"].setdefault(idioma, {}).setdefault("voz", {})
+    if vi.get("edge"):
+        cfg["idiomas"][idioma]["voz"]["edge"] = vi["edge"]
+    if vi.get("elevenlabs_voice_id"):
+        cfg["idiomas"][idioma]["voz"]["elevenlabs_voice_id"] = vi["elevenlabs_voice_id"]
+    if vi.get("edge_rate"):
+        cfg["voz"]["edge_rate"] = vi["edge_rate"]
+    if v.get("velocidad"):
+        cfg["voz"]["velocidad"] = v["velocidad"]
+    return cfg
 
 
 def clave(nombre: str) -> str | None:

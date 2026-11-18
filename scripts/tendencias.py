@@ -204,7 +204,7 @@ def main():
     ap.add_argument("--sin-cache", action="store_true")
     a = ap.parse_args()
     tirada = tirada_desde_arg(a.tirada)
-    cfg = cargar_config()
+    cfg = cargar_config(tirada)
     enc = encargo(tirada)
     if a.validar:
         return validar(tirada, cfg)

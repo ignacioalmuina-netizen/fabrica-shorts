@@ -33,9 +33,15 @@ SCOPES = ["https://www.googleapis.com/auth/youtube.upload",
 
 
 # ------------------------------------------------------------------ OAuth
-def credenciales(interactivo: bool = False):
+def ruta_token(marca: str | None) -> Path:
+    """Un token OAuth por canal: secrets/token_<marca>.json (o token.json si no hay marca)."""
+    return SECRETS / (f"token_{marca}.json" if marca else "token.json")
+
+
+def credenciales(interactivo: bool = False, marca: str | None = None):
     from google.auth.transport.requests import Request
     from google.oauth2.credentials import Credentials
+    TOKEN = ruta_token(marca)
     creds = Credentials.from_authorized_user_file(str(TOKEN), SCOPES) if TOKEN.exists() else None
     if creds and creds.expired and creds.refresh_token:
         try:
@@ -46,7 +52,8 @@ def credenciales(interactivo: bool = False):
     if creds and creds.valid:
         return creds
     if not interactivo:
-        parar("No hay sesión de YouTube válida. Ejecuta: python scripts/upload.py --login")
+        parar("No hay sesión de YouTube válida para este canal. Ejecuta: "
+              f"python scripts/upload.py --login --canal {marca or '<canal>'}")
     if not CLIENT_SECRET.exists():
         parar(f"Falta {CLIENT_SECRET}. Descárgalo de Google Cloud (README, paso 5).")
     from google_auth_oauthlib.flow import InstalledAppFlow
@@ -67,12 +74,12 @@ def youtube(creds):
     return build("youtube", "v3", credentials=creds, cache_discovery=False)
 
 
-def login():
-    yt = youtube(credenciales(interactivo=True))
+def login(marca: str | None = None):
+    yt = youtube(credenciales(interactivo=True, marca=marca))
     r = yt.channels().list(part="snippet", mine=True).execute()
     if not r.get("items"):
         parar("La cuenta no tiene canal de YouTube. Crea uno en youtube.com primero.")
-    print(f"✅ Canal conectado: {r['items'][0]['snippet']['title']} (token en {TOKEN})")
+    print(f"✅ Canal conectado: {r['items'][0]['snippet']['title']} (token en {ruta_token(marca)})")
 
 
 # ------------------------------------------------------------------ metadatos
@@ -101,6 +108,9 @@ def validar_metadatos(tirada: Path, cfg: dict) -> dict:
     for h in cfg["publicacion"]["hashtags_fijos"]:
         if h.lower() not in m.get("descripcion", "").lower():
             err.append(f"la descripción debe incluir el hashtag fijo {h}")
+    obligatoria = leer_json(tirada / SALIDAS[0]).get("descripcion_obligatoria")
+    if obligatoria and obligatoria.lower() not in m.get("descripcion", "").lower():
+        err.append(f"la descripción debe incluir el texto obligatorio del canal: {obligatoria!r}")
     if err:
         parar("07_metadatos.json no válido:\n - " + "\n - ".join(err))
     return m
@@ -143,7 +153,7 @@ def subir_api(tirada: Path, meta: dict, cfg: dict, sintetico: bool) -> dict:
     if not pub["proyecto_auditado"] and pub["privacidad"] != "private":
         print("⚠️  publicacion.proyecto_auditado=false: YouTube bloqueará este vídeo en PRIVADO para siempre.\n"
               "    Pide la auditoría (README, paso 8) o usa modo navegador.")
-    yt = youtube(credenciales())
+    yt = youtube(credenciales(marca=leer_json(tirada / SALIDAS[0]).get("marca")))
     body = {
         "snippet": {"title": meta["titulo"], "description": meta["descripcion"], "tags": meta["tags"],
                     "categoryId": pub["categoria_id"], "defaultLanguage": meta.get("idioma"),
@@ -207,6 +217,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("tirada", nargs="?")
     ap.add_argument("--login", action="store_true")
+    ap.add_argument("--canal", help="con --login: vice_intel | odd_atlas | bone_logic | lost_files")
     ap.add_argument("--modo", choices=["api", "navegador", "manual"])
     ap.add_argument("--validar", action="store_true")
     ap.add_argument("--registrar", action="store_true")
@@ -214,11 +225,11 @@ def main():
     ap.add_argument("--miniatura", default="desconocido")
     a = ap.parse_args()
     if a.login:
-        return login()
+        return login(a.canal)
     if not a.tirada:
         parar("Indica la carpeta de la tirada o --login")
     tirada = tirada_desde_arg(a.tirada)
-    cfg = cargar_config()
+    cfg = cargar_config(tirada)
     requiere(tirada, SALIDAS[4], SALIDAS[5], SALIDAS[6])
     meta = validar_metadatos(tirada, cfg)
     if a.validar:

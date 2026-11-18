@@ -26,7 +26,7 @@ def main():
     a = ap.parse_args()
     tirada = tirada_desde_arg(a.tirada)
     requiere(tirada, SALIDAS[1], SALIDAS[2])
-    cfg = cargar_config()
+    cfg = cargar_config(tirada)
     g_cfg = cfg["guion"]
     enc = encargo(tirada)
     g = leer_json(tirada / SALIDAS[2])
@@ -38,9 +38,10 @@ def main():
             errores.append(f"falta '{campo}'")
     if enc.get("formato") and g.get("formato") != enc["formato"]:
         errores.append(f"formato '{g.get('formato')}' ≠ el asignado por la rotación '{enc['formato']}'")
-    previos = [h.get("formato_id") for h in historial() if h.get("formato_id")]
+    previos = [h.get("formato_id") for h in historial()
+               if h.get("formato_id") and h.get("marca") == enc.get("marca")]
     if previos and g.get("formato") == previos[-1]:
-        errores.append(f"formato '{g['formato']}' igual que el del vídeo anterior: rota de plantilla")
+        errores.append(f"formato '{g['formato']}' igual que el del vídeo anterior de este canal: rota de plantilla")
 
     escenas = g.get("escenas") or []
     if not (g_cfg["escenas_min"] <= len(escenas) <= g_cfg["escenas_max"]):
@@ -62,12 +63,10 @@ def main():
         if n > 16:
             avisos.append(f"escena {i}: {n} palabras; un plano de Short dura ~2-3 s (≤12 palabras). Pártela.")
 
-    # ---- gancho: una sola pregunta, corta
+    # ---- gancho: cabe en 2 segundos
     primera = escenas[0]["narracion"].strip() if escenas else ""
-    if primera.count("?") != 1 or not primera.endswith("?"):
-        errores.append("la escena 1 debe ser UNA sola pregunta (y nada más): p. ej. '¿Qué pasa si te tragas un chicle?'")
-    if enc.get("idioma", "es") == "es" and primera and not primera.startswith("¿"):
-        errores.append("en español la pregunta del gancho empieza por '¿'")
+    if primera.count("?") > 1:
+        errores.append("la escena 1 tiene más de una pregunta: el gancho es UNA sola idea")
     if len(tokenizar(primera)) > g_cfg["max_palabras_gancho"]:
         errores.append(f"el gancho tiene {len(tokenizar(primera))} palabras (máx {g_cfg['max_palabras_gancho']}): "
                        "tiene que caber en 2 segundos")
@@ -82,8 +81,6 @@ def main():
     alt = g.get("ganchos_alternativos") or []
     if len(alt) < 3:
         errores.append("hacen falta 3 ganchos alternativos (todos preguntas)")
-    elif any("?" not in x for x in alt):
-        errores.append("los ganchos alternativos también deben ser preguntas")
     if not g.get("justificacion_gancho"):
         errores.append("falta 'justificacion_gancho'")
 
@@ -93,6 +90,22 @@ def main():
     if not (g_cfg["duracion_min_s"] <= dur <= g_cfg["duracion_max_s"]):
         errores.append(f"duración estimada {dur:.1f}s ({total_palabras} palabras); "
                        f"debe estar entre {g_cfg['duracion_min_s']} y {g_cfg['duracion_max_s']}s")
+
+    # ---- reglas del canal
+    marca = enc.get("marca")
+    etiqueta = (g.get("etiqueta_pantalla") or "").upper()
+    if g.get("contiene_rumor") and not any(x in etiqueta for x in ("RUMOR", "FILTRACI", "LEAK")):
+        errores.append("contiene_rumor=true: pon etiqueta_pantalla 'RUMOR' / 'FILTRACIÓN' / 'LEAK'")
+    if g.get("es_ficcion") and not any(x in etiqueta for x in ("FICCI", "FICTION")):
+        errores.append("es_ficcion=true: pon etiqueta_pantalla 'FICCIÓN' / 'FICTION'")
+    if marca == "odd_atlas":
+        datos = {}
+        for f in g.get("fuentes") or []:
+            datos.setdefault(normalizar(f.get("dato", ""))[:60], set()).add(f.get("url"))
+        flojos = [d for d, urls in datos.items() if len(urls) < 2]
+        if flojos:
+            errores.append(f"Odd Atlas exige 2 fuentes por dato; {len(flojos)} dato(s) con una sola URL "
+                           "(repite el mismo 'dato' con la segunda URL)")
 
     # ---- verdad
     fuentes = g.get("fuentes") or []

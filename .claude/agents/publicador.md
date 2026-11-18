@@ -51,3 +51,10 @@ El script apunta el vídeo en `canal/historial.json` automáticamente (y lo actu
 
 ## Respuesta
 Título, modo, estado, enlace (o "pendiente: <motivo>"), estado de la miniatura y valor de contenido sintético.
+
+## Canales (canales.yaml)
+- Título y descripción en el idioma del vídeo. Inspírate en los `ejemplos_titulos` del canal (sin copiarlos).
+- Si el encargo trae `descripcion_obligatoria`, inclúyela TAL CUAL en la descripción (Vice Intel: "fan channel"). El validador lo comprueba.
+- Bone Logic: termina la descripción con "Contenido informativo, no es consejo médico. Consultá/Check with a professional."
+- Lost Files: si hay recreaciones IA, dilo en la descripción ("Recreación con IA" / "AI recreation").
+- Modo `api`: cada canal tiene su token (`python scripts/upload.py --login --canal <marca>`).

@@ -238,6 +238,7 @@ def generar_ass(palabras: list[dict], guion: dict, tiempos: list[dict], escenas0
     W, H = cfg["video"]["ancho"], cfg["video"]["alto"]
     blanco, activo = hex_a_ass(s["color"]), hex_a_ass(s["color_activo"])
     g = cfg.get("gancho_pantalla", {})
+    et = cfg.get("etiqueta", {})
     cab = f"""[Script Info]
 ScriptType: v4.00+
 PlayResX: {W}
@@ -248,13 +249,19 @@ ScaledBorderAndShadow: yes
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
 Style: Karaoke,{s['fuente']},{s['tamano']},{blanco},{blanco},{hex_a_ass(s['color_borde'])},&H90000000,0,0,0,0,100,100,1,0,1,{s['borde']},{s['sombra']},5,60,60,0,1
-Style: Gancho,{s['fuente']},{g.get('tamano', 128)},{hex_a_ass(g.get('color_texto', '#000000'))},&H000000FF,{hex_a_ass(g.get('color_caja', '#FFE600'))},&H00000000,0,0,0,0,100,100,1,0,3,22,0,5,60,60,0,1
+Style: Gancho,{g.get('fuente', s['fuente'])},{g.get('tamano', 128)},{hex_a_ass(g.get('color_texto', '#000000'))},&H000000FF,{hex_a_ass(g.get('color_caja', '#FFE600'))},&H00000000,0,0,0,0,100,100,1,0,3,22,0,5,60,60,0,1
 Style: Cuenta,{s['fuente']},420,{activo},{activo},&H00000000,&H90000000,0,0,0,0,100,100,0,0,1,18,8,5,0,0,0,1
+Style: Etiqueta,{et.get('fuente', s['fuente'])},64,{hex_a_ass(et.get('color_texto', '#FFFFFF'))},&H000000FF,{hex_a_ass(et.get('color_caja', '#E0563F'))},&H00000000,0,0,0,0,100,100,2,-4,3,12,0,7,0,0,0,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 """
     lineas = []
+    # ---- sello fijo (RUMOR / FICCIÓN / RECREACIÓN IA) arriba a la izquierda, todo el vídeo
+    sello = limpiar(guion.get("_etiqueta") or "", True)
+    if sello:
+        lineas.append(f"Dialogue: 4,{ass_tiempo(0)},{ass_tiempo(duracion_total)},Etiqueta,,0,0,0,,"
+                      f"{{\\an7\\pos(48,150)\\frz4}}{sello}")
     # ---- tarjeta del gancho: la pregunta, en caja de color, durante la escena 1
     fin_gancho = 0.0
     if g.get("activo", True) and tiempos:
@@ -365,8 +372,9 @@ def pista_sfx(escenas04: list[dict], tiempos: list[dict], dur: float, cfg: dict,
 
 
 def elegir_musica(cfg) -> Path | None:
-    carpeta = RAIZ / cfg["musica"]["carpeta"]
-    pistas = sorted(p for p in carpeta.glob("*") if p.suffix.lower() in (".mp3", ".wav", ".m4a", ".ogg"))
+    def pistas_de(c):
+        return sorted(p for p in c.glob("*") if p.suffix.lower() in (".mp3", ".wav", ".m4a", ".ogg"))
+    pistas = pistas_de(RAIZ / cfg["musica"]["carpeta"]) or pistas_de(RAIZ / "assets" / "music")
     if not pistas:
         return None
     usadas = [h.get("musica") for h in historial()[-3:]]
@@ -426,7 +434,7 @@ def main():
     a = ap.parse_args()
     tirada = tirada_desde_arg(a.tirada)
     requiere(tirada, SALIDAS[2], SALIDAS[3], "03_voz.mp3", SALIDAS[4])
-    cfg = cargar_config()
+    cfg = cargar_config(tirada)
     voz = leer_json(tirada / SALIDAS[3])
     esc_json = leer_json(tirada / SALIDAS[4])
     guion = leer_json(tirada / SALIDAS[2])
@@ -456,6 +464,12 @@ def main():
         renderizar_video(planos, dur, cfg, mudo)
 
         ass = tirada / "05_subtitulos.ass"
+        enc = leer_json(tirada / SALIDAS[0])
+        sellos = [x for x in (guion.get("etiqueta_pantalla"), enc.get("etiqueta_fija")) if x]
+        if enc.get("etiqueta_fija") and not any(e.get("fuente") in ("openai", "ia", "cloudflare", "elevenlabs")
+                                                for e in escenas04):
+            sellos = [x for x in sellos if x != enc.get("etiqueta_fija")]   # sin IA no hay recreación que etiquetar
+        guion = dict(guion, _etiqueta=" · ".join(dict.fromkeys(sellos)))
         n_lineas = generar_ass(voz["palabras"], guion, tiempos, escenas04, cfg, ass, dur)
         sfx = trabajo / "sfx.wav"
         eventos = pista_sfx(escenas04, tiempos, dur, cfg, sfx)

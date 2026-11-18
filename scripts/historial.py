@@ -25,6 +25,8 @@ def apuntar(tirada: Path) -> dict:
     entrada = {
         "tirada": enc.get("tirada", tirada.name),
         "fecha": ahora_iso(),
+        "marca": enc.get("marca"),
+        "canal": enc.get("canal"),
         "idioma": enc.get("idioma"),
         "tema": ten.get("tema"),
         "formato": gui.get("formato"),

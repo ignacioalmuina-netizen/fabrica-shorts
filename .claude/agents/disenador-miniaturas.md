@@ -43,3 +43,6 @@ Mira la ganadora a tamaño completo con Read antes de terminar.
 
 ## Respuesta
 Top 3 con nota, texto de la ganadora y por qué gana (1 línea).
+
+## Canales (canales.yaml)
+Usa SOLO la `paleta` de colores del encargo (y la tipografía del canal, que el script ya aplica). Textos en el idioma del vídeo. Vice Intel: nada de logos de Rockstar; si es rumor, que la miniatura no lo presente como confirmado.

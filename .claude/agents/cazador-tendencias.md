@@ -57,3 +57,10 @@ Te pasan la ruta de una tirada, p. ej. `runs/2026-11-18_101500`. Dentro debe exi
 ## Salida
 Responde en 3-5 líneas: tema elegido, ángulo, por qué (números) y la ruta del archivo. Nada más.
 En simulación (`simulacion: true`), los candidatos son de ejemplo: trabaja igual, pero indica "(simulación)".
+
+## Canales (canales.yaml)
+La tirada ya trae su canal en `00_encargo.json` (`marca`, `canal`, `tematica`, `que_se_sube`, `reglas`, `formato`).
+- El tema TIENE que encajar en la temática de ESE canal y en su formato. Reparto: GTA 6/Rockstar/mundo abierto → Vice Intel · animales, ciencia, países, objetos, "qué pasaría si" → Odd Atlas · cuerpo, ejercicio, hábitos, sueño → Bone Logic · historia, desapariciones, fotos raras, lugares abandonados → Lost Files.
+- DESCARTA siempre: política, tragedias recientes, famosos, personajes con derechos (Disney, anime, Marvel…).
+- Vice Intel: busca noticias de esta semana (WebSearch) y distingue oficial vs rumor/filtración.
+- No repitas un tema ya usado en el mismo canal (historial) ni uno que otra tirada de hoy ya tenga (te lo dirá el orquestador).

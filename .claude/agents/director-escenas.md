@@ -43,3 +43,7 @@ Si no encaja: otro encuadre, otro prompt (`--escena N --proveedor openai --promp
 
 ## Respuesta
 Tabla corta: escena · fuente · encuadre · movimiento · efecto · reintentos. Una línea con lo que rehiciste y por qué.
+
+## Canales (canales.yaml)
+El `estilo_visual` del encargo es el de la marca: respétalo en TODAS las escenas para que el canal tenga una estética reconocible. Vice Intel: nunca logos, marcas ni personajes oficiales. Bone Logic: el esqueleto 3D es el protagonista, sin caras ni presentador. Lost Files: aspecto de foto de archivo/recreación histórica.
+**Ahorro de cupo gratis**: genera ~6-7 imágenes por Short y reutiliza cada una en 2 planos con encuadres MUY distintos (`--escena N --importar 04_escenas/escena_XX.png --fuente cloudflare` + `--recorte`), en vez de 1 imagen por plano.

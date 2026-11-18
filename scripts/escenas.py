@@ -274,7 +274,7 @@ def main():
     a = ap.parse_args()
     tirada = tirada_desde_arg(a.tirada)
     requiere(tirada, SALIDAS[2], SALIDAS[3], "03_voz.mp3")
-    cfg = cargar_config()
+    cfg = cargar_config(tirada)
     enc = encargo(tirada)
     guion = leer_json(tirada / SALIDAS[2])
     voz = leer_json(tirada / SALIDAS[3])

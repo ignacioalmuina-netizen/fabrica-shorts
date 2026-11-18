@@ -8,6 +8,7 @@ Eres el **orquestador** de la fábrica de Shorts. NO haces el trabajo de los age
 Argumentos recibidos: `$ARGUMENTS`
 
 ## 1. Interpretar los argumentos
+- Canal: "Vice Intel", "Odd Atlas", "Bone Logic", "Lost Files" (o su id/handle) → `--canal <id>`. Sin canal → `nueva_tirada.py` elige el que lleva más tiempo sin vídeo.
 - Vacío → 1 Short con tema libre (el cazador elige lo que más esté funcionando).
 - `xN` (p. ej. `x3`) → N Shorts seguidos, uno detrás de otro, cada uno con su tirada. Tema libre.
 - Cualquier otro texto → tema forzado (p. ej. `tiburones` o `agujeros negros`).
@@ -19,7 +20,7 @@ Argumentos recibidos: `$ARGUMENTS`
 
 ### 2.1 Crear la tirada
 ```bash
-python scripts/nueva_tirada.py [--tema "<tema>"] [--idioma es|en] [--formato <id>] [--simulacion]
+python scripts/nueva_tirada.py [--canal <id>] [--tema "<tema>"] [--idioma es|en] [--formato <id>] [--simulacion]
 ```
 La última línea que imprime es la ruta absoluta de la tirada → guárdala como `TIRADA`.
 
@@ -58,6 +59,9 @@ Lee `01_tendencia.json`, `02_guion.json`, `05_montaje.json`, `06_miniaturas.json
 - **Título**
 - **Link** del vídeo (o el estado: pendiente en navegador / manual / simulación, con lo que tiene que hacer el usuario)
 - Avisos importantes (vídeo bloqueado en privado por proyecto no auditado, miniatura no disponible, voz de respaldo…)
+
+## Varios Shorts del mismo canal a la vez
+Para ir más rápido puedes crear todas las tiradas al principio, pero entonces fija tú la rotación: `--formato` distinto entre Shorts consecutivos (orden de `canales.yaml`) e `--idioma` alternando en/es. Pasa al cazador de cada tirada los temas ya elegidos en las otras para que no se repitan. Las cadenas de tiradas distintas pueden ir en paralelo (pasos 2-7), pero dentro de cada tirada siempre en orden.
 
 ## 3. Si fueron varios (`xN`)
 Al final, una tabla con una fila por Short: tema · gancho · duración · miniatura · link/estado.

@@ -3,8 +3,10 @@
 #  Todo lo que se puede cambiar sin tocar código está aquí.
 # ============================================================
 
+# Los 4 canales (Vice Intel, Odd Atlas, Bone Logic, Lost Files), sus formatos,
+# estética, voces y reglas están en canales.yaml. Esto es la configuración común.
 canal:
-  nombre: "MI_CANAL"            # <-- pon aquí el nombre de tu canal
+  nombre: "Fábrica de Shorts"
   # Nicho generalista: el cazador de tendencias elige el tema que más
   # esté funcionando AHORA, sea del tema que sea.
   nicho: "generalista"
@@ -63,52 +65,14 @@ tendencias:
   top_candidatos: 25            # cuántos candidatos ve el agente
 
 # ------------------------------------------------------------
-#  Formatos del canal (se ROTAN: nunca la misma plantilla dos veces seguidas)
-#  Referencias de ESTRUCTURA (no copiar contenido):
-#   A · Zack D. Films / What If  ·  B · Helix²  ·  C · BIG Facts / Trivia
-# ------------------------------------------------------------
-formatos:
-  que_pasaria_si:
-    nombre: "¿Qué pasaría si…?"
-    estructura: >-
-      Pregunta hipotética en segunda persona (≤2 s). Respuesta en cadena de consecuencias
-      que escalan (cada plano = un paso: "primero… luego… y entonces…"). Giro inesperado
-      a 2/3. Cierre que devuelve la pregunta al espectador para el bucle.
-    estilo_visual: >-
-      Hyper-realistic 3D CGI animation still, cinematic, dramatic rim lighting,
-      volumetric light, glossy wet textures, shallow depth of field, vivid saturated colors.
-    planos: [8, 12]
-  cuerpo_humano:
-    nombre: "¿Qué le pasa a tu cuerpo si…?"
-    estructura: >-
-      Pregunta sobre TU cuerpo (≤2 s). Viaje por dentro del cuerpo o línea temporal
-      (minuto 1, hora 1, día 3…) con órganos/esqueleto resaltados. Un dato que rompe el mito
-      a mitad. Cierre con la consecuencia final o pregunta de vuelta.
-    estilo_visual: >-
-      Hyper-realistic 3D medical CGI render, translucent x-ray human body with glowing
-      highlighted organs and skeleton, dark background, blue and orange accent lighting,
-      cinematic, ultra detailed.
-    planos: [8, 12]
-  datos_quiz:
-    nombre: "Quiz / dato imposible"
-    estructura: >-
-      Pregunta de trivia irresistible (≤2 s). Cuenta atrás 3-2-1 para que el espectador
-      piense (efecto cuenta_atras) y "comenta tu respuesta". Revelación con golpe (flash/boom).
-      2 datos extra rapidísimos que suben la apuesta. Cierre con otra pregunta.
-    estilo_visual: >-
-      Photorealistic cinematic close-up, bold high-contrast lighting, punchy saturated
-      colors, clean dark background, editorial look.
-    planos: [7, 11]
-  orden_rotacion: [que_pasaria_si, cuerpo_humano, datos_quiz]
-
-# ------------------------------------------------------------
 #  2. Guion
 # ------------------------------------------------------------
 guion:
-  duracion_min_s: 18
-  duracion_max_s: 30
+  duracion_min_s: 20
+  duracion_max_s: 45
+  duracion_ideal_s: [25, 35]
   escenas_min: 7
-  escenas_max: 14              # 1 escena = 1 plano = 1 frase corta (cortes cada ~2 s)
+  escenas_max: 18              # 1 escena = 1 plano = 1 frase corta (cortes cada ~2 s)
   palabras_por_segundo: 2.5    # ya con el 1.08x (prudente: los números leídos alargan)
   max_palabras_gancho: 9
   ganchos_prohibidos:

@@ -65,3 +65,13 @@ Después ejecuta `python scripts/verificar_guion.py <tirada>` y corrige hasta qu
 
 ## Respuesta
 3-5 líneas: formato, gancho, duración estimada, nº de planos, datos verificados (nº) y ruta del archivo.
+
+## Canales (canales.yaml) — esto manda sobre lo anterior
+Lee en `00_encargo.json`: `canal`, `formato`, `formato_nombre`, `estructura`, `estilo_idioma`, `reglas`, `ejemplos_titulos`, `estilo_visual`.
+- **Duración 20-45 s** (ideal 25-35), **una sola idea**. El gancho cabe en 2 s (≤9 palabras). Puede ser pregunta o afirmación que rompa una creencia, como los `ejemplos_titulos`.
+- **Español NATIVO**, no traducido del inglés: escribe directamente en español con el `estilo_idioma` del canal (Bone Logic ES = rioplatense con voseo: "colgás", "consultá").
+- Cumple las `reglas` del canal:
+  - Vice Intel: si algo no es oficial, `"contiene_rumor": true` y `"etiqueta_pantalla": "RUMOR"`/`"FILTRACIÓN"` (EN: "RUMOR"/"LEAK"). Nada de logos ni personajes oficiales en `prompt_imagen`.
+  - Odd Atlas: cada dato con **2 fuentes** (pon dos entradas en `fuentes` con el mismo `dato` y URLs distintas). Si no hay 2, descártalo.
+  - Bone Logic: nada de consejos médicos ni diagnósticos; protagonista = esqueleto 3D (sin presentador humano); cierre "consultá con un profesional"/"check with a professional" cuando aplique.
+  - Lost Files: solo hechos reales con fuente; si es ficción `"es_ficcion": true` + `"etiqueta_pantalla": "FICCIÓN"`/"FICTION"; nada de crímenes recientes ni víctimas con familia viva identificable. Las teorías se dicen como teorías.

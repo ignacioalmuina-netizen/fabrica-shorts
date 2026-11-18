@@ -326,7 +326,11 @@ def main():
     ap.add_argument("--puntuar")
     a = ap.parse_args()
     tirada = tirada_desde_arg(a.tirada)
-    cfg = cargar_config()
+    cfg = cargar_config(tirada)
+    global FUENTE
+    fa = (cfg.get("subtitulos") or {}).get("fuente_archivo")
+    if fa and (RAIZ / "assets" / "fonts" / fa).exists():
+        FUENTE = RAIZ / "assets" / "fonts" / fa
     if a.render:
         render(tirada, cfg)
     elif a.puntuar:

@@ -172,7 +172,7 @@ def main():
     a = ap.parse_args()
     tirada = tirada_desde_arg(a.tirada)
     requiere(tirada, SALIDAS[2])
-    cfg = cargar_config()
+    cfg = cargar_config(tirada)
     enc = encargo(tirada)
     guion = leer_json(tirada / SALIDAS[2])
     texto = " ".join(e["narracion"].strip() for e in guion["escenas"])

@@ -1,0 +1,223 @@
+# ============================================================
+#  CANALES · 4 marcas, un canal cada una, que alterna ES / EN.
+#  Los guiones en español se escriben NATIVOS (no traducidos).
+#  Todos: gancho en los primeros 2 s, 20-45 s, una sola idea,
+#  subtítulos grandes sincronizados.
+#  Nunca dos Shorts seguidos con el mismo formato en un canal.
+# ============================================================
+
+reparto_tendencias:
+  vice_intel: "GTA 6, Rockstar Games o gaming de mundo abierto"
+  odd_atlas: "animales, ciencia, países, objetos, '¿qué pasaría si...?'"
+  bone_logic: "cuerpo humano, ejercicio, hábitos, sueño"
+  lost_files: "historia, desapariciones, fotos raras, lugares abandonados"
+descartar:
+  - política
+  - tragedias recientes
+  - famosos
+  - personajes con derechos (Disney, anime, Marvel, etc.)
+
+marcas:
+  # ----------------------------------------------------------
+  vice_intel:
+    nombre: "Vice Intel"
+    handle: "@ViceIntel"
+    idiomas: [en, es]
+    tematica: "GTA 6, Rockstar Games y juegos de mundo abierto."
+    que_se_sube:
+      - "Noticias flash: 'Rockstar acaba de confirmar X', cambios de fecha, tráilers, parches."
+      - "Detalles ocultos: cosas del tráiler o del mapa que casi nadie vio."
+      - "Comparaciones: GTA 6 vs GTA 5 (físicas, mapa, gráficos, NPCs)."
+      - "Listas rápidas: '5 cosas de GTA 6 que no sabías', '3 detalles que lo cambian todo'."
+      - "Después del lanzamiento: trucos, ubicaciones secretas, easter eggs, récords."
+    reglas:
+      - "Decir 'fan channel' en la descripción."
+      - "Nunca usar el logo de Rockstar ni marcas/personajes oficiales en las imágenes."
+      - "No presentar rumores como confirmados: poner 'RUMOR' o 'FILTRACIÓN' / 'LEAK' en pantalla (etiqueta_pantalla)."
+    descripcion_obligatoria:
+      en: "Fan channel — not affiliated with Rockstar Games or Take-Two."
+      es: "Canal de fans (fan channel) — sin relación con Rockstar Games ni Take-Two."
+    ejemplos_titulos:
+      en: ["Rockstar Just Confirmed This GTA 6 Detail", "GTA 6 vs GTA 5: The Physics Are Insane"]
+      es: ["Rockstar acaba de confirmar este detalle de GTA 6", "GTA 6 vs GTA 5: la diferencia en físicas es brutal"]
+    estilo_visual: >-
+      Stylized hyper-detailed open-world video game look, neon-lit tropical coastal city at night,
+      hot pink and cyan neon, deep navy shadows, cinematic, wet reflective streets.
+      Original characters and vehicles only: no logos, no brand names, no real game characters.
+    formatos:
+      noticia_flash:
+        nombre: "Noticia flash"
+        estructura: "Titular en 2 s ('Rockstar acaba de confirmar…'). Qué se ha dicho exactamente y dónde (fuente oficial). Por qué importa. Cierre con pregunta. Si no es oficial: etiqueta RUMOR/FILTRACIÓN."
+      detalle_oculto:
+        nombre: "Detalle oculto"
+        estructura: "Gancho '¿Viste esto en el tráiler?'. Dónde está (segundo/zona). Qué significa. Giro o pista extra. Cierre: '¿qué más se nos escapó?'."
+      comparacion:
+        nombre: "Comparación"
+        estructura: "GTA 6 vs GTA 5 en UNA cosa (físicas, mapa, NPCs…). Antes → ahora con 2-3 diferencias concretas y verificables. Veredicto."
+      lista:
+        nombre: "Lista de 3-5"
+        estructura: "'3 cosas de GTA 6 que no sabías'. Cada punto 1 plano + 1 frase. El mejor, al final. Cierre con pregunta."
+    config:
+      subtitulos: {fuente: "Anton", fuente_archivo: "Anton-Regular.ttf", color: "#FFFFFF", color_activo: "#2DE2E6", color_borde: "#0B0F2E"}
+      gancho_pantalla: {color_caja: "#FF3D8B", color_texto: "#FFFFFF"}
+      etiqueta: {color_caja: "#FF3D8B", color_texto: "#FFFFFF"}
+      video: {grado_color: "eq=contrast=1.08:saturation=1.3,unsharp=5:5:0.6", vineta: 0.5}
+      musica: {carpeta: "assets/music/vice_intel", volumen: 0.13}
+      miniaturas: {colores: ["#FF3D8B", "#2DE2E6", "#0B0F2E", "#FFFFFF"]}
+    voz:
+      tono: "masculina enérgica, ritmo rápido"
+      velocidad: 1.1
+      en: {edge: "en-US-GuyNeural", edge_rate: "+8%", elevenlabs_voice_id: ""}
+      es: {edge: "es-MX-JorgeNeural", edge_rate: "+10%", elevenlabs_voice_id: "18GZPpJvaVG53Nt3H52N",
+           estilo: "Español neutro para España y Latinoamérica, tono gamer enérgico, tuteo."}
+
+  # ----------------------------------------------------------
+  odd_atlas:
+    nombre: "Odd Atlas"
+    handle: "@OddAtlas"
+    idiomas: [en, es]
+    tematica: "Curiosidades generales. Es el paraguas más amplio y recibe la mayoría de las tendencias."
+    que_se_sube:
+      - "Animales raros y sus habilidades."
+      - "Ciencia que parece mentira."
+      - "'¿Qué pasaría si...?' (si la Luna desapareciera, si dejaras de dormir, etc.)."
+      - "La historia oculta de objetos cotidianos."
+      - "Datos de países y geografía."
+      - "'Cosas que el colegio no te enseñó' y '¿A qué edad descubriste esto?'."
+    reglas:
+      - "Cada dato verificado en 2 fuentes; si no se puede verificar, se descarta."
+      - "Etiquetar como contenido sintético cuando la imagen de IA parezca real."
+    ejemplos_titulos:
+      en: ["What If the Moon Disappeared for 1 Day?", "This Animal Can Survive Being Frozen"]
+      es: ["¿Qué pasaría si la Luna desapareciera un día?", "Este animal sobrevive aunque lo congeles"]
+    estilo_visual: >-
+      Hyper-realistic 3D CGI render, cinematic, vivid natural colors, dramatic but warm lighting,
+      shallow depth of field, single clear subject, clean uncluttered background.
+    formatos:
+      dato_unico:
+        nombre: "Dato único explicado"
+        estructura: "Un dato increíble en 2 s. Por qué pasa (2-3 pasos claros). Un giro que lo hace aún más raro. Cierre '¿a qué edad descubriste esto?'."
+      que_pasaria_si:
+        nombre: "¿Qué pasaría si…?"
+        estructura: "Hipótesis en segunda persona. Consecuencias en cadena que escalan (primero… luego… y entonces…). Giro a 2/3. Pregunta de vuelta para el bucle."
+      lista_rapida:
+        nombre: "Lista de datos rápidos"
+        estructura: "'3 cosas que el colegio no te enseñó sobre X'. Un dato por plano, del bueno al mejor. Cierre con pregunta."
+      animal_raro:
+        nombre: "Animal raro"
+        estructura: "'Este animal puede…' en 2 s. Cómo lo hace (biología simple). Comparación con humanos. Dato final que sorprende."
+    config:
+      subtitulos: {fuente: "Space Grotesk", fuente_archivo: "SpaceGrotesk-Bold.ttf", color: "#FFFFFF", color_activo: "#FFD23F", color_borde: "#111111", tamano: 150}
+      gancho_pantalla: {color_caja: "#FFD23F", color_texto: "#111111"}
+      etiqueta: {color_caja: "#111111", color_texto: "#FFD23F"}
+      video: {grado_color: "eq=contrast=1.05:saturation=1.2,unsharp=5:5:0.6", vineta: 0.4}
+      musica: {carpeta: "assets/music/odd_atlas", volumen: 0.12}
+      miniaturas: {colores: ["#FFD23F", "#111111", "#FFFFFF"]}
+    voz:
+      tono: "curiosa y cercana"
+      velocidad: 1.08
+      en: {edge: "en-US-AvaNeural", edge_rate: "+6%", elevenlabs_voice_id: ""}
+      es: {edge: "es-MX-DaliaNeural", edge_rate: "+6%", elevenlabs_voice_id: "",
+           estilo: "Español neutro para España y Latinoamérica, tono curioso y cercano, tuteo."}
+
+  # ----------------------------------------------------------
+  bone_logic:
+    nombre: "Bone Logic"
+    handle: "@BoneLogic"
+    idiomas: [en, es]
+    tematica: "Cuerpo humano y gym, explicado con esqueletos y anatomía en 3D."
+    que_se_sube:
+      - "'Qué pasa dentro de tu cuerpo cuando...' (haces sentadillas, colgás 60 segundos, no dormís, corrés)."
+      - "Tests físicos: 'La mayoría falla este test de 1 minuto'."
+      - "Ejercicios por músculo: '3 ejercicios para piernas completas'."
+      - "Errores de técnica y cómo afectan a músculos y articulaciones."
+      - "Hábitos: postura, sueño, agua, estiramientos."
+    reglas:
+      - "Nada de consejos médicos ni diagnósticos."
+      - "Ningún presentador/avatar de IA que hable de salud (YouTube no lo monetiza): el protagonista es el esqueleto 3D."
+      - "Cierre tipo 'consultá con un profesional' / 'check with a professional' cuando haga falta."
+    ejemplos_titulos:
+      en: ["What Happens Inside Your Body When You Hang for 60 Seconds", "Most People Fail This 1-Minute Leg Test"]
+      es: ["Qué le pasa a tu cuerpo si te colgás 60 segundos", "La mayoría falla este test de piernas de 1 minuto"]
+    estilo_visual: >-
+      Hyper-realistic 3D anatomical render, an ivory bone-colored human skeleton as the main character,
+      active muscles glowing lime green, pure black studio background, crisp rim lighting, clean medical-visualization look.
+      No faces, no human presenter, no text.
+    formatos:
+      esqueleto_movimiento:
+        nombre: "Esqueleto explicando un movimiento"
+        estructura: "'Qué pasa en tu cuerpo cuando…' en 2 s. El esqueleto hace el movimiento; plano a plano qué músculos/articulaciones trabajan (resaltados en lima). Dato sorprendente. Cierre."
+      test_reto:
+        nombre: "Test o reto"
+        estructura: "'La mayoría falla este test de 1 minuto'. Cómo se hace en 2-3 pasos. Qué mide (músculo/movilidad). Cuenta atrás (efecto cuenta_atras) y '¿lo pasaste? comentá'."
+      ejercicios_musculo:
+        nombre: "Ejercicios por músculo"
+        estructura: "'3 ejercicios para X'. Un ejercicio por plano con el músculo en lima. Error común en 1 frase. Cierre con aviso de profesional si aplica."
+      error_tecnica:
+        nombre: "Error de técnica"
+        estructura: "'Si haces X así, tu rodilla/espalda…'. Qué pasa en la articulación (alarma roja). Cómo se hace bien (verde lima). Cierre."
+    config:
+      subtitulos: {fuente: "Archivo Black", fuente_archivo: "ArchivoBlack-Regular.ttf", color: "#F2EEE4", color_activo: "#C6FF3D", color_borde: "#0E0E0E", tamano: 150}
+      gancho_pantalla: {color_caja: "#C6FF3D", color_texto: "#0E0E0E"}
+      etiqueta: {color_caja: "#0E0E0E", color_texto: "#C6FF3D"}
+      video: {grado_color: "eq=contrast=1.06:saturation=1.05,unsharp=5:5:0.6", vineta: 0.5}
+      musica: {carpeta: "assets/music/bone_logic", volumen: 0.11}
+      miniaturas: {colores: ["#C6FF3D", "#F2EEE4", "#0E0E0E"]}
+    voz:
+      tono: "tranquila y clara"
+      velocidad: 1.05
+      en: {edge: "en-US-BrianNeural", edge_rate: "+2%", elevenlabs_voice_id: ""}
+      es: {edge: "es-AR-TomasNeural", edge_rate: "+2%", elevenlabs_voice_id: "",
+           estilo: "Español rioplatense con voseo (colgás, corrés, consultá), claro y tranquilo, como en los títulos de ejemplo."}
+
+  # ----------------------------------------------------------
+  lost_files:
+    nombre: "Lost Files"
+    handle: "@LostFiles"
+    idiomas: [en, es]
+    tematica: "Misterios reales e historia rara."
+    que_se_sube:
+      - "Desapariciones y casos sin resolver (antiguos, nunca recientes)."
+      - "Fotos históricas inexplicables."
+      - "Barcos fantasma, lugares abandonados, ciudades perdidas."
+      - "Hechos históricos raros: 'X parecía normal... hasta que descubrieron por qué'."
+      - "Objetos y documentos que nadie sabe explicar."
+    reglas:
+      - "Solo hechos reales con fuentes; si una historia es ficción, avisarlo en pantalla (etiqueta_pantalla 'FICCIÓN'/'FICTION')."
+      - "Nada de crímenes recientes ni víctimas con familia viva identificable."
+      - "Las recreaciones con IA se etiquetan en pantalla (RECREACIÓN IA / AI RECREATION) y como contenido sintético."
+    etiqueta_fija:
+      en: "AI RECREATION"
+      es: "RECREACIÓN IA"
+    ejemplos_titulos:
+      en: ["The Ghost Ship Found With No One On Board", "This Photo Has Never Been Explained"]
+      es: ["El barco fantasma que apareció sin nadie a bordo", "Nadie pudo explicar esta foto"]
+    estilo_visual: >-
+      Cinematic historical recreation, aged archival photograph look, sepia and charcoal tones,
+      film grain, fog, moody low-key lighting, documentary realism, period-accurate details. No text.
+    formatos:
+      caso_30s:
+        nombre: "Caso en 30 segundos"
+        estructura: "Fecha y lugar en 2 s. Qué pasó (3-4 hechos). El detalle que nadie explica. Teorías (marcadas como teorías). Cierre '¿qué crees que pasó?'."
+      foto_inexplicable:
+        nombre: "Foto inexplicable"
+        estructura: "'Nadie pudo explicar esta foto'. Contexto (año, lugar, quién). Qué se ve raro (zoom). Explicaciones propuestas. Cierre."
+      lugar_perdido:
+        nombre: "Lugar perdido"
+        estructura: "'Este lugar desapareció…'. Cómo era. Qué pasó. Qué queda hoy. Dato final inquietante."
+      parecia_normal:
+        nombre: "Parecía normal hasta que…"
+        estructura: "'X parecía normal… hasta que descubrieron por qué'. Situación normal. Primera pista. Revelación (flash/boom). Consecuencia."
+    config:
+      subtitulos: {fuente: "Oswald", fuente_archivo: "Oswald-Bold.ttf", color: "#E9DFC8", color_activo: "#E0563F", color_borde: "#1B1A17", tamano: 160}
+      gancho_pantalla: {color_caja: "#E9DFC8", color_texto: "#1B1A17", fuente: "Special Elite", fuente_archivo: "SpecialElite-Regular.ttf", posicion_y: 420, tamano: 120, caracteres_linea: 14}
+      etiqueta: {color_caja: "#E0563F", color_texto: "#E9DFC8", fuente: "Special Elite"}
+      video: {grado_color: "eq=contrast=1.05:saturation=0.55:gamma=0.97,colorbalance=rs=.08:gs=.03:bs=-.08,noise=alls=10:allf=t,unsharp=5:5:0.4", vineta: 0.6, intensidad_movimiento: 0.7}
+      musica: {carpeta: "assets/music/lost_files", volumen: 0.14}
+      miniaturas: {colores: ["#E0563F", "#E9DFC8", "#1B1A17"]}
+    voz:
+      tono: "grave y pausada"
+      velocidad: 1.0
+      en: {edge: "en-US-ChristopherNeural", edge_rate: "-2%", elevenlabs_voice_id: ""}
+      es: {edge: "es-ES-AlvaroNeural", edge_rate: "-2%", elevenlabs_voice_id: "",
+           estilo: "Español neutro para España y Latinoamérica, narración grave y pausada de documental."}
