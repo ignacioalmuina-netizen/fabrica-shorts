@@ -72,5 +72,24 @@
     "url": null,
     "privacidad": null,
     "simulacion": false
+  },
+  {
+    "tirada": "2026-11-18_144537",
+    "fecha": "2026-11-18T14:58:14+00:00",
+    "idioma": "es",
+    "tema": "Qué pasaría si viajaras a bordo de la Voyager 1, hoy a un día luz de la Tierra",
+    "formato": "que_pasaria_si",
+    "formato_id": "que_pasaria_si",
+    "gancho": "¿Y si viajaras hoy dentro de la Voyager 1?",
+    "titulo": "¿Y si viajaras dentro de la Voyager 1 hoy?",
+    "duracion_s": 27.0,
+    "musica": "pulso_cinematico.wav",
+    "miniatura": "NUNCA VOLVERÁS",
+    "modo_subida": "manual",
+    "estado": "pendiente_manual",
+    "video_id": null,
+    "url": null,
+    "privacidad": null,
+    "simulacion": false
   }
 ]
