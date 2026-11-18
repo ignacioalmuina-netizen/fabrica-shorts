@@ -221,6 +221,20 @@ def main():
     else:
         if enc.get("simulacion"):
             detalles, _, unidades = buscar_simulado(enc)
+        elif not clave("YOUTUBE_API_KEY"):
+            # Plan B sin clave: el agente buscará las tendencias en la web (WebSearch)
+            escribir_json(tirada / "01_candidatos.json", {
+                "fecha": ahora_iso(), "idioma": enc["idioma"], "regiones": enc["regiones"],
+                "fuente": "sin_api", "formato": enc.get("formato"),
+                "aviso": "No hay YOUTUBE_API_KEY: busca con WebSearch qué temas de Shorts/curiosidades están "
+                         "funcionando esta semana y elige uno para el formato del encargo.",
+                "unidades_cuota_gastadas": 0, "total_analizados": 0,
+                "top_por_views_hora": [], "top_por_views_suscriptor": [],
+                "temas_ya_usados": temas_recientes(cfg["canal"]["dias_sin_repetir_tema"]),
+                "temas_prohibidos": cfg["canal"]["temas_prohibidos"],
+            })
+            print("⚠️  Sin YOUTUBE_API_KEY: modo web. El agente debe buscar tendencias con WebSearch.")
+            return
         else:
             detalles, _, unidades = buscar_api(cfg, enc)
         escribir_json(cache, {"fecha": ahora_iso(), "detalles": detalles})

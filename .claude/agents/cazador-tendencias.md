@@ -15,7 +15,8 @@ Te pasan la ruta de una tirada, p. ej. `runs/2026-11-18_101500`. Dentro debe exi
 2. Ejecuta UNA vez: `python scripts/tendencias.py <tirada>`
    - Hace `search.list` (videoDuration=short, order=viewCount, publishedAfter=últimos 7 días, regionCode, relevanceLanguage) + `videos.list` + `channels.list`, filtra ≤180 s y calcula views/hora y views/suscriptor. Deja `01_candidatos.json`.
    - **Cuota**: cada search.list cuesta 100 unidades. NO lo ejecutes más de una vez, no uses `--sin-cache` salvo que el usuario lo pida. El script cachea 6 h.
-   - Si el script para con error (falta clave, cuota agotada), PARA tú también y devuelve el mensaje exacto.
+   - Si el script para con error (cuota agotada, etc.), PARA tú también y devuelve el mensaje exacto.
+   - **Sin `YOUTUBE_API_KEY`** el script deja `01_candidatos.json` con `"fuente": "sin_api"`: entonces usa WebSearch (2-4 búsquedas) para ver qué curiosidades/temas de Shorts están funcionando esta semana en el idioma del encargo, y elige con el mismo criterio. En `videos_referencia` pon lo que encuentres (título/URL) o `[]`, y en `metricas_clave` indica "modo web, sin métricas de YouTube".
 3. Lee `01_candidatos.json` y analiza como un profesional:
    - `top_por_views_hora`: lo que está acelerando ahora.
    - `top_por_views_suscriptor`: **canal pequeño que revienta = el TEMA es lo que funciona, no el canal**. Dale más peso que a los canales gigantes (que petan por su audiencia).
