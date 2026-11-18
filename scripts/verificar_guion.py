@@ -114,6 +114,19 @@ def main():
     if g.get("verificado") is not True:
         errores.append("falta 'verificado': true (comprueba cada dato con WebSearch antes)")
 
+    # ---- anti plantilla (monetización): el mismo canal no puede repetir arranque ni cierre
+    mismos = [h for h in historial() if h.get("marca") == enc.get("marca")][-10:]
+    inicio = " ".join(normalizar(w) for w in tokenizar(primera)[:3])
+    for h in mismos:
+        if h.get("gancho") and " ".join(normalizar(w) for w in tokenizar(h["gancho"])[:3]) == inicio:
+            errores.append(f"el gancho empieza igual que un vídeo reciente del canal ({h['gancho']!r}): varía la plantilla")
+        if h.get("cierre") and escenas and normalizar(h["cierre"]) == normalizar(escenas[-1]["narracion"]):
+            errores.append("el cierre es idéntico al de un vídeo reciente del canal")
+    groseras = ["mierda", "puta", "joder", "fuck", "shit"]
+    texto_total = " ".join(normalizar(e.get("narracion", "")) for e in escenas)
+    if any(f" {w} " in f" {texto_total} " for w in groseras):
+        errores.append("lenguaje soez: no es apto para anunciantes")
+
     # ---- anti contenido clonado: ganchos casi iguales a los últimos vídeos
     for h in historial()[-10:]:
         if h.get("gancho") and normalizar(h["gancho"]) == normalizar(primera):

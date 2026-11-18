@@ -17,6 +17,17 @@ descartar:
   - famosos
   - personajes con derechos (Disney, anime, Marvel, etc.)
 
+# Reglas para que los canales MONETICEN (YouTube Partner Program, política de
+# "contenido no auténtico" de julio 2025 y su aclaración de 2026). Se revisan por CANAL, no por vídeo.
+monetizacion:
+  - "Cada Short con ángulo y aporte propios (explicación, comparación, conclusión): nada de plantillas clonadas."
+  - "Variar de verdad entre vídeos del mismo canal: gancho, estructura de frases, cierre, planos, música."
+  - "Nunca un avatar/persona IA hablando de salud, finanzas o temas legales (Bone Logic: solo esqueleto 3D)."
+  - "Apto para anunciantes: nada gráfico ni morboso (sangre, heridas, fluidos corporales explícitos, cadáveres), nada de lenguaje soez, nada que busque angustiar."
+  - "Lost Files: tono documental, sin recrear violencia ni víctimas; misterio, no morbo."
+  - "Vice Intel: nada de metraje ni música con derechos; imágenes propias; noticias con fuente."
+  - "Marcar 'contenido alterado o sintético' cuando la imagen IA parezca real."
+
 marcas:
   # ----------------------------------------------------------
   vice_intel:
@@ -30,6 +41,16 @@ marcas:
       - "Comparaciones: GTA 6 vs GTA 5 (físicas, mapa, gráficos, NPCs)."
       - "Listas rápidas: '5 cosas de GTA 6 que no sabías', '3 detalles que lo cambian todo'."
       - "Después del lanzamiento: trucos, ubicaciones secretas, easter eggs, récords."
+    radar:
+      prioridad: "Noticias de las últimas 24-48 h primero (lanzamiento, parches, anuncios oficiales de Rockstar/Take-Two), después lo más comentado (filtraciones, detalles descubiertos por la comunidad)."
+      busquedas:
+        - "GTA 6 news today"
+        - "Rockstar Games announcement this week"
+        - "GTA 6 noticias hoy"
+        - "GTA 6 leak OR rumor this week"
+        - "GTA 6 hidden details players found"
+        - "GTA 6 vs GTA 5 comparison"
+      fuentes_oficiales: ["rockstargames.com/newswire", "take2games.com", "@RockstarGames"]
     reglas:
       - "Decir 'fan channel' en la descripción."
       - "Nunca usar el logo de Rockstar ni marcas/personajes oficiales en las imágenes."
@@ -84,6 +105,15 @@ marcas:
       - "La historia oculta de objetos cotidianos."
       - "Datos de países y geografía."
       - "'Cosas que el colegio no te enseñó' y '¿A qué edad descubriste esto?'."
+    radar:
+      prioridad: "Descubrimientos y noticias de ciencia/animales de esta semana con 2 fuentes; después curiosidades virales del momento; efemérides de hoy."
+      busquedas:
+        - "new species discovered this week"
+        - "science news this week surprising"
+        - "NASA news this week"
+        - "viral fun fact this week"
+        - "curiosidades virales esta semana"
+        - "descubrimiento científico esta semana"
     reglas:
       - "Cada dato verificado en 2 fuentes; si no se puede verificar, se descarta."
       - "Etiquetar como contenido sintético cuando la imagen de IA parezca real."
@@ -132,6 +162,14 @@ marcas:
       - "Ejercicios por músculo: '3 ejercicios para piernas completas'."
       - "Errores de técnica y cómo afectan a músculos y articulaciones."
       - "Hábitos: postura, sueño, agua, estiramientos."
+    radar:
+      prioridad: "Estudios nuevos (últimos 30 días) sobre ejercicio, sueño, postura, hidratación; retos fitness virales; hábitos de temporada."
+      busquedas:
+        - "new study exercise this month"
+        - "new sleep study 2026"
+        - "viral fitness challenge this week"
+        - "estudio nuevo ejercicio músculos"
+        - "reto fitness viral"
     reglas:
       - "Nada de consejos médicos ni diagnósticos."
       - "Ningún presentador/avatar de IA que hable de salud (YouTube no lo monetiza): el protagonista es el esqueleto 3D."
@@ -182,6 +220,15 @@ marcas:
       - "Barcos fantasma, lugares abandonados, ciudades perdidas."
       - "Hechos históricos raros: 'X parecía normal... hasta que descubrieron por qué'."
       - "Objetos y documentos que nadie sabe explicar."
+    radar:
+      prioridad: "Efemérides de misterios de esta semana (aniversarios), hallazgos recientes (naufragios, arqueología, archivos desclasificados), misterios históricos que vuelven a ser noticia. Nunca casos recientes."
+      busquedas:
+        - "on this day in history mystery"
+        - "shipwreck discovered 2026"
+        - "archaeology discovery this week"
+        - "declassified documents mystery"
+        - "misterio histórico aniversario esta semana"
+        - "hallazgo arqueológico esta semana"
     reglas:
       - "Solo hechos reales con fuentes; si una historia es ficción, avisarlo en pantalla (etiqueta_pantalla 'FICCIÓN'/'FICTION')."
       - "Nada de crímenes recientes ni víctimas con familia viva identificable."

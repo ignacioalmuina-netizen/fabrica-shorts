@@ -32,6 +32,7 @@ def apuntar(tirada: Path) -> dict:
         "formato": gui.get("formato"),
         "formato_id": enc.get("formato"),
         "gancho": gui.get("gancho"),
+        "cierre": ((gui.get("escenas") or [{}])[-1]).get("narracion"),
         "titulo": meta.get("titulo"),
         "duracion_s": mon.get("duracion"),
         "musica": mon.get("musica"),

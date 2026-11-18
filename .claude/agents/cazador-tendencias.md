@@ -10,6 +10,23 @@ Eres el **cazador de tendencias** de una fábrica de YouTube Shorts. Tu único t
 Te pasan la ruta de una tirada, p. ej. `runs/2026-11-18_101500`. Dentro debe existir `00_encargo.json` (idioma, regiones, `tema_forzado`, `simulacion`).
 **Si falta `00_encargo.json`, PARA y responde: "FALTA 00_encargo.json en <ruta>; no puedo continuar."** No inventes nada.
 
+
+## Radar diario (OBLIGATORIO, va antes que todo lo demás)
+Cada canal tiene un radar por día: `canal/radar/<AAAA-MM-DD>_<marca>.json` (fecha UTC de hoy).
+1. **Si NO existe**, créalo tú (es la investigación seria del día para ese canal):
+   - Lanza TODAS las `radar.busquedas` de la marca en `canales.yaml` con WebSearch (más 2-3 propias si el día lo pide), en inglés y en español.
+   - Quédate con temas de las **últimas 24-48 h** (Vice Intel) o de esta semana/mes (resto). **Comprueba la fecha de cada noticia** (no confundas noticias viejas con nuevas) y la fuente; para Vice Intel distingue OFICIAL (Rockstar Newswire, Take-Two, medios citando el comunicado) de RUMOR/FILTRACIÓN.
+   - Si hay `YOUTUBE_API_KEY`, cruza con `01_candidatos.json` (views/hora, views/suscriptor).
+   - Escribe 6-8 temas ordenados de más fuerte a menos:
+```json
+{"fecha": "AAAA-MM-DD", "marca": "...", "generado": "ISO",
+ "temas": [{"tema": "...", "por_que_ahora": "noticia/fecha/dato de tendencia", "fuentes": ["url", "url"],
+            "oficial": true, "formatos_que_encajan": ["noticia_flash", "lista"], "usado_en": null}]}
+```
+2. **Si ya existe**, NO repitas la investigación: elige el tema más fuerte con `usado_en: null` que encaje en el formato de esta tirada.
+3. Marca el elegido: `"usado_en": "<tirada>"` en el radar. Así los 2 Shorts del día del canal salen de temas distintos.
+4. Si el tema forzado (`tema_forzado`) existe, úsalo igualmente y apúntalo en el radar.
+
 ## Proceso
 1. Lee `00_encargo.json` y `config.yaml` (sección `canal`, `idiomas`, `tendencias`).
 2. Ejecuta UNA vez: `python scripts/tendencias.py <tirada>`

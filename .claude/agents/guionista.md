@@ -75,3 +75,9 @@ Lee en `00_encargo.json`: `canal`, `formato`, `formato_nombre`, `estructura`, `e
   - Odd Atlas: cada dato con **2 fuentes** (pon dos entradas en `fuentes` con el mismo `dato` y URLs distintas). Si no hay 2, descártalo.
   - Bone Logic: nada de consejos médicos ni diagnósticos; protagonista = esqueleto 3D (sin presentador humano); cierre "consultá con un profesional"/"check with a professional" cuando aplique.
   - Lost Files: solo hechos reales con fuente; si es ficción `"es_ficcion": true` + `"etiqueta_pantalla": "FICCIÓN"`/"FICTION"; nada de crímenes recientes ni víctimas con familia viva identificable. Las teorías se dicen como teorías.
+
+## Monetización (obligatorio)
+Lee `monetizacion` en `canales.yaml`. YouTube revisa el CANAL entero: si los vídeos parecen plantilla, no monetiza ninguno.
+- Mira los últimos 10 vídeos del canal en `canal/historial.json` (gancho, cierre, formato) y escribe algo que NO se parezca: otro tipo de gancho, otra forma de explicar, otro cierre.
+- Aporta algo propio en cada guion (`aporte_propio`): una comparación original, una explicación paso a paso, una conclusión.
+- Apto para anunciantes: nada gráfico (fluidos, heridas, cadáveres), nada soez, nada angustiante. Si el tema roza eso, cuéntalo con tono científico/documental y que los `prompt_imagen` no lo muestren de forma explícita.
