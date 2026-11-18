@@ -18,7 +18,7 @@ Ruta de la tirada. Necesitas `02_guion.json`.
 2. Revisa la salida del script:
    - LUFS medido ≈ −14 (±1).
    - Nº de palabras ≈ palabras del guion (el alineado con el guion debe asignar todas las escenas).
-   - Duración entre 25 y 45 s (aprox.). Si se va de rango, dilo claramente en tu respuesta para que el orquestador lo sepa (no reescribas el guion: no es tu trabajo).
+   - Duración dentro de `guion.duracion_min_s`-`duracion_max_s` (18-30 s). Si se pasa, empieza tu respuesta con **"DURACIÓN EXCEDIDA: X s"** y los tiempos por escena, para que el orquestador devuelva el guion al guionista (no reescribas el guion: no es tu trabajo).
    - Ninguna escena con duración < 1 s ni escenas sin palabras.
 3. Si la voz suena con algún problema evidente que puedas arreglar cambiando de proveedor o de voz, repite con `--proveedor edge` o `--voz <id>`. Máximo 2 intentos.
 

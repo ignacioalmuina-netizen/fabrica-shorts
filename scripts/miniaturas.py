@@ -161,8 +161,10 @@ def dibujar_texto(img: Image.Image, c: dict) -> tuple[tuple, int]:
     for l, x, y, lw in filas:
         cx = x
         for w in l.split(" "):
-            color = col_d if (destacada and w.strip("!?¿¡.,") in destacada.split()) else col
-            d.text((cx, y), w, font=f, fill=color, stroke_width=borde, stroke_fill=(0, 0, 0))
+            limpia = lambda t: t.strip("!?¿¡.,:;\"'")
+            color = col_d if (destacada and limpia(w) in [limpia(x) for x in destacada.split()]) else col
+            contorno = (255, 255, 255) if luminancia(color) < 0.15 else (0, 0, 0)   # texto oscuro → borde claro
+            d.text((cx, y), w, font=f, fill=color, stroke_width=borde, stroke_fill=contorno)
             cx += f.getlength(w + " ")
     ang = float(c.get("inclinacion", 0))
     if ang:

@@ -45,6 +45,8 @@ Para cada paso:
 3. Si falla (exit 1): **reintenta ese mismo agente UNA vez**, diciéndole qué archivo falta y el error que dio.
 4. Si vuelve a fallar: **PARA la cadena** y dile al usuario: en qué paso (número y nombre del agente), qué archivo falta y el último mensaje del agente. No sigas con los pasos siguientes ni con más Shorts de un `xN`.
 
+**Duración:** si el locutor responde "DURACIÓN EXCEDIDA", llama otra vez al `guionista` pasándole la duración real y los tiempos por escena para que recorte (los números leídos en voz alta alargan mucho), y después otra vez al `locutor`. Máximo 2 vueltas.
+
 No modifiques tú los archivos de la tirada ni hagas el trabajo de un agente que falla.
 
 ### 2.3 Resumen del Short

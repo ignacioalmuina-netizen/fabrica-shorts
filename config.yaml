@@ -109,7 +109,7 @@ guion:
   duracion_max_s: 30
   escenas_min: 7
   escenas_max: 14              # 1 escena = 1 plano = 1 frase corta (cortes cada ~2 s)
-  palabras_por_segundo: 2.7    # ya con el 1.08x
+  palabras_por_segundo: 2.5    # ya con el 1.08x (prudente: los números leídos alargan)
   max_palabras_gancho: 9
   ganchos_prohibidos:
     - "hola"

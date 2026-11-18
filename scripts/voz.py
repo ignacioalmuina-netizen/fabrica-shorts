@@ -228,8 +228,10 @@ def main():
     print(f"✅ Voz lista · {proveedor} ({voz_usada}) · {dur:.1f}s · {len(final)} palabras · {lufs:.1f} LUFS")
     for t in tiempos:
         print(f"   escena {t['escena']}: {t['inicio']:6.2f}s → {t['fin']:6.2f}s ({t['duracion']:.2f}s)")
-    if not (cfg["guion"]["duracion_min_s"] - 3 <= dur <= cfg["guion"]["duracion_max_s"] + 5):
-        print(f"⚠️  La duración ({dur:.1f}s) se sale del rango del guion. Revisa el guion.")
+    if dur > cfg["guion"]["duracion_max_s"] + 0.5:
+        print(f"⚠️  DURACIÓN EXCEDIDA: {dur:.1f}s (máx {cfg['guion']['duracion_max_s']}s). El guionista debe recortar.")
+    elif dur < cfg["guion"]["duracion_min_s"] - 2:
+        print(f"⚠️  Demasiado corto: {dur:.1f}s (mín {cfg['guion']['duracion_min_s']}s).")
 
 
 if __name__ == "__main__":

@@ -27,6 +27,7 @@ Lee también `config.yaml` (`guion`, `formatos`, `idiomas.<idioma>.estilo`) y `c
 ## Ritmo y planos
 - **1 escena = 1 plano = 1 frase corta** (2-3 s, ≤ 12 palabras). 7-14 escenas. Cortes cada ~2 s, como las referencias.
 - Escalada: cada plano sube un poco la apuesta (más cerca, más raro, más grave). Giro a 2/3. Final que enlaza con el principio (bucle).
+- **Números**: cada cifra leída en voz alta ocupa mucho ("sesenta y un mil kilómetros por hora" ≈ 2 s). Usa como mucho 2-3 cifras por vídeo, redondeadas y cortas.
 - Habla en segunda persona ("tu estómago", "tu cerebro") cuando el formato lo permita.
 
 Para cada escena:
