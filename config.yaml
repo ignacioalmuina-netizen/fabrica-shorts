@@ -207,4 +207,5 @@ publicacion:
 #  Automatización (tarea programada diaria)
 # ------------------------------------------------------------
 automatizacion:
-  shorts_por_tirada: 3          # cuántos Shorts hace cada vez que se lanza sin número
+  shorts_por_canal_dia: 2       # cadencia objetivo: 2 Shorts al día en cada uno de los 4 canales
+  shorts_por_tirada: 2          # cuántos Shorts hace "haz shorts" sin número (por canal pedido)
