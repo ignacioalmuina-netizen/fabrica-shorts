@@ -53,5 +53,24 @@
     "url": null,
     "privacidad": null,
     "simulacion": false
+  },
+  {
+    "tirada": "2026-11-18_123206",
+    "fecha": "2026-11-18T14:45:19+00:00",
+    "idioma": "en",
+    "tema": "Which planet spins slower than it orbits the Sun (Venus)",
+    "formato": "datos_quiz",
+    "formato_id": "datos_quiz",
+    "gancho": "Which planet's spin takes longer than its year?",
+    "titulo": "Which planet takes longer to spin than to orbit?",
+    "duracion_s": 28.17,
+    "musica": "pulso_cinematico.wav",
+    "miniatura": "243 > 225",
+    "modo_subida": "manual",
+    "estado": "pendiente_manual",
+    "video_id": null,
+    "url": null,
+    "privacidad": null,
+    "simulacion": false
   }
 ]

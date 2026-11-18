@@ -111,7 +111,7 @@ def contenido_sintetico(tirada: Path, cfg: dict) -> bool:
     if isinstance(v, bool):
         return v
     esc = leer_json(tirada / SALIDAS[4])["escenas"]
-    return any(e.get("fuente") in ("openai", "ia", "elevenlabs") for e in esc)
+    return any(e.get("fuente") in ("openai", "ia", "elevenlabs", "cloudflare") for e in esc)
 
 
 def preparar_paquete(tirada: Path, meta: dict, cfg: dict, sintetico: bool) -> Path:
