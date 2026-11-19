@@ -176,5 +176,27 @@
     "url": null,
     "privacidad": null,
     "simulacion": false
+  },
+  {
+    "tirada": "2026-11-18_151801",
+    "fecha": "2026-11-19T15:51:40+00:00",
+    "marca": "odd_atlas",
+    "canal": "Odd Atlas",
+    "idioma": "es",
+    "tema": "Por qué el wombat hace caca en forma de cubo",
+    "formato": "dato_unico",
+    "formato_id": "dato_unico",
+    "gancho": "Este animal hace caca en forma de cubo.",
+    "cierre": "¿A qué edad descubriste esto?",
+    "titulo": "El wombat hace caca en cubos y hay un buen motivo",
+    "duracion_s": 31.63,
+    "musica": "curiosidad.wav",
+    "miniatura": "¿CUBOS?",
+    "modo_subida": "manual",
+    "estado": "pendiente_manual",
+    "video_id": null,
+    "url": null,
+    "privacidad": null,
+    "simulacion": false
   }
 ]
