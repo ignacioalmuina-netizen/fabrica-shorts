@@ -15,7 +15,7 @@ Ruta de la tirada. Necesitas `02_guion.json`, `03_voz.mp3`, `03_palabras.json`, 
    - Cada escena = un plano que dura exactamente lo que tarda la voz en decir su frase.
    - Cámara: el `movimiento` y el `recorte` de cada escena (04_escenas.json), con curva suave, *punch* de zoom en cada corte.
    - Efectos visuales por escena: `flash`, `shake`, `boom`, `alarma` (pulso rojo), `cuenta_atras` (3-2-1 en pantalla). Viñeta, grado de color y barra de progreso arriba.
-   - Tarjeta del gancho: la pregunta (`texto_gancho`) en caja amarilla durante la escena 1.
+   - Tarjeta del gancho: la pregunta (`texto_gancho`) en la caja con el color de la marca (canales.yaml) durante la escena 1.
    - Subtítulos `05_subtitulos.ass`: Anton, 2 palabras por línea, la que suena en amarillo con rebote.
    - Sonido: voz + pista de efectos (`assets/sfx/`: whoosh en cortes, boom en golpes, pop al inicio, tic-tac en cuenta atrás) + música de `assets/music/` con *ducking*.
 2. **Revisa** con Read `05_capturas/hoja.jpg`, `05_capturas/zonas_ui.jpg` y 2-3 capturas sueltas:
