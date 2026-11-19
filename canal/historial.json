@@ -154,5 +154,27 @@
     "url": null,
     "privacidad": null,
     "simulacion": false
+  },
+  {
+    "tirada": "2026-11-18_152225",
+    "fecha": "2026-11-19T15:50:54+00:00",
+    "marca": "vice_intel",
+    "canal": "Vice Intel",
+    "idioma": "es",
+    "tema": "GTA 6 se desbloquea esta medianoche: hora oficial por pais y precarga",
+    "formato": "noticia_flash",
+    "formato_id": "noticia_flash",
+    "gancho": "¿A qué hora exacta juegas GTA 6 esta noche?",
+    "cierre": "¿Medianoche en punto o duermes primero?",
+    "titulo": "GTA 6 ya se juega: cada país, a su medianoche",
+    "duracion_s": 27.43,
+    "musica": "neon_nocturno.wav",
+    "miniatura": "¿PRECARGA? NO BASTA",
+    "modo_subida": "manual",
+    "estado": "pendiente_manual",
+    "video_id": null,
+    "url": null,
+    "privacidad": null,
+    "simulacion": false
   }
 ]
