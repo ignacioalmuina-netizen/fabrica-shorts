@@ -132,5 +132,27 @@
     "url": null,
     "privacidad": null,
     "simulacion": false
+  },
+  {
+    "tirada": "2026-11-18_151803",
+    "fecha": "2026-11-19T15:48:23+00:00",
+    "marca": "odd_atlas",
+    "canal": "Odd Atlas",
+    "idioma": "en",
+    "tema": "What if every ant on Earth vanished overnight",
+    "formato": "que_pasaria_si",
+    "formato_id": "que_pasaria_si",
+    "gancho": "What if every ant on Earth vanished tonight?",
+    "cierre": "Still think you wouldn't notice?",
+    "titulo": "What If Every Ant on Earth Vanished Tonight?",
+    "duracion_s": 26.81,
+    "musica": "curiosidad.wav",
+    "miniatura": "GONE BY MORNING",
+    "modo_subida": "manual",
+    "estado": "pendiente_manual",
+    "video_id": null,
+    "url": null,
+    "privacidad": null,
+    "simulacion": false
   }
 ]
