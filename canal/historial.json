@@ -110,5 +110,27 @@
     "url": null,
     "privacidad": null,
     "simulacion": false
+  },
+  {
+    "tirada": "2026-11-18_152226",
+    "fecha": "2026-11-19T15:48:01+00:00",
+    "marca": "vice_intel",
+    "canal": "Vice Intel",
+    "idioma": "en",
+    "tema": "GTA 6 vs every GTA map: how much bigger is Leonida",
+    "formato": "lista",
+    "formato_id": "lista",
+    "gancho": "Just how big is GTA 6's map, really?",
+    "cierre": "Which old map would you still play?",
+    "titulo": "Every GTA Map Ranked by Size, Up to GTA 6",
+    "duracion_s": 29.7,
+    "musica": "neon_nocturno.wav",
+    "miniatura": "2.5X BIGGER?",
+    "modo_subida": "manual",
+    "estado": "pendiente_manual",
+    "video_id": null,
+    "url": null,
+    "privacidad": null,
+    "simulacion": false
   }
 ]
